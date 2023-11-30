@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="grid min-h-screen   w-75 h-80 grid place-content-center bg-slate-700 shadow-2xl">
-        <div class="justify-center border-2  rounded-md border-gray-700 p-7 mt-5 bg-slate-300 flex flex-col">
+        <div class="justify-center border-2  rounded-md border-gray-700 p-7 mt-5 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
           <div class="max-w-md  my-3  opacity-90">
             <div class="flex justify-center">
 
@@ -33,7 +33,7 @@
               
             </div>
               <div class="mt-5 flex justify-center">
-                <button  class=" bg-sky-500 hover:bg-sky-700 py-2 px-2 text-xl  mx-auto mt-5 text-white rounded">
+                <button  class=" bg-sky-500 hover:bg-sky-700 py-2 px-2 text-xl  mx-auto mt-5 text-white rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg shadow-blue-500/50">
                   Connexion
                 </button>
               </div>
@@ -41,7 +41,7 @@
             </div>
 
             <div class="text-center mt-3">
-                <a href="">
+                <a href="inscription.php">
                     <p>S'inscrire</p>
                 </a>
             </div>
