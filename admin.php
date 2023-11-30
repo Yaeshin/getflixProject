@@ -7,21 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-400">
-    <nav class="h-full bg-cyan-900">
-        <div>
-            <div class="flex flex-col">
-                <a href="#">Option 1</a>
-                <a href="#">Option 1</a>
-                <a href="#">Option 1</a>
-                <a href="#">Option 1</a>
-            </div>
-            <div>
-                <a href="#">Quitter</a>
-            </div>
-        </div>
-    </nav>
-    <section class="Va chier "></section>
+<body class="bg-stone-700 flex">
+    <?php include "styles/navAdmin.php"; ?>
+    <section class="w-4/5 m-5 p-8 bg-neutral-200">
+
+    </section>
 </body>
 
 </html>
