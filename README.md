@@ -1,2 +1,0 @@
-# getflixProject
-Streaming website project
