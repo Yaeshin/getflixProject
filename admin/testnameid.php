@@ -1,11 +1,7 @@
 <?php
 include 'api.php';
+include 'db.php';
 
-// Initialisation des variables avec des valeurs par défaut
-$filmName = '';
-$filmSummary = '';
-$youtube_link = '';
-$filmImage = ''; 
 // Traitement de la recherche lorsque le formulaire est soumis
 if (isset($_POST['movieName'])) { // Utilisez POST ici
     $movieName = urlencode($_POST['movieName']);
@@ -37,13 +33,20 @@ if (isset($_POST['movieName'])) { // Utilisez POST ici
             die('Erreur de l\'API : ' . $errorMessage);
         }
 
-        // Récupérer les détails du film
+        //Récupérer les détails du film
         $filmName = $data['title'];
         $filmYear = substr($data['release_date'], 0, 4);
         $filmGenres = $data['genres'];
         $filmRuntime = $data['runtime'];
         $filmSummary = $data['overview'];
         $filmImage = 'https://image.tmdb.org/t/p/w500' . $data['poster_path'];
+
+        // ...
+
+
+
+// ...
+
 
         // Convertisseur minutes - heures:minutes
         $hours = floor($filmRuntime / 60);
@@ -66,57 +69,64 @@ if (isset($_POST['movieName'])) { // Utilisez POST ici
         $last_key_value = end($data['results'])['key'];
 
         $youtube_link = "https://www.youtube.com/watch?v={$last_key_value}";
+
+        //db :
+        // Récupérer les détails du film
+        // $filmNamedb = mysqli_real_escape_string($conn, $filmName);
+        // $filmYeardb = substr($filmYear['release_date'], 0, 4);
+        // $filmRuntimedb = $filmRuntime['runtime'];
+        // $filmSummarydb = mysqli_real_escape_string($conn, $filmSummary['overview']);
+        // $filmImagedb = 'https://image.tmdb.org/t/p/w500' . $filmImage['poster_path'];
+        // $filmGenresdb = implode(", ", array_column($filmGenres['genres'], 'name'));
+
+        $filmNamedb = mysqli_real_escape_string($conn, $filmName);
+        $filmYeardb = substr($filmYear, 0, 4);
+        $filmRuntimedb = $filmRuntime;
+        $filmSummarydb = mysqli_real_escape_string($conn, $filmSummary);
+        $filmImagedb = 'https://image.tmdb.org/t/p/w500' . $filmImage;
+        $filmGenresdb = implode(", ", array_column($filmGenres, 'name'));
+
+
+        // // Convertisseur minutes - heures:minutes
+        // $hours = floor($filmRuntime / 60);
+        // $minutes = $filmRuntime % 60;
+
+        // ...
+
+        // Insérer les données dans la base de données
+        $sqlInsert = "INSERT INTO film (id, titre, date, durée, description, image, trailer, genres) 
+              VALUES ('$idfilm', '$filmNamedb', '$filmYeardb', '$filmRuntimedb', '$filmSummarydb', '$filmImagedb', '$youtube_link', '$filmGenresdb')";
+
+        if (mysqli_query($conn, $sqlInsert)) {
+            echo "<p>Les données ont été ajoutées à la base de données.</p>";
+        } else {
+            echo "Erreur d'insertion : " . mysqli_error($conn);
+        }
+
+        // Afficher les détails du film
+        echo "
+            <h1>$filmName</h1>
+            <p>Année : $filmYear</p>
+            <p>Durée : $hours h $minutes min</p>";
+
+        if (!empty($filmGenres)) {
+            echo "<p>Genres : ";
+            foreach ($filmGenres as $genre) {
+                echo $genre['name'] . " ";
+            }
+            echo "</p>";
+        }
+
+        echo "
+            <p>Résumé : $filmSummary</p>
+            <img src=\"$filmImage\" alt=\"$filmName\">
+            <p>Trailer : <a href=\"$youtube_link\" target='_blank'>Voir la vidéo sur YouTube</a></p>
+            <a href=\"$youtube_link\">$youtube_link</a>";
+
+    } else {
+        // Aucun résultat trouvé
+        echo "<p>Aucun résultat trouvé pour ce film.</p>";
     }
 }
+$conn->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Layout avec Tailwind CSS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="bg-stone-700 flex">
-    <?php include "../styles/navAdmin.php"; ?>
-    <section class="w-4/5 m-5 p-8 bg-neutral-200 rounded-md flex justify-center items-center">
-    <div class="w-full max-w-md">
-    <form class="w-full max-w-md" method="post" action="">
-    <!-- Première partie du formulaire -->
-    <div class="m-5 pb-3 flex items-center">
-        <input
-            class="w-full border rounded py-2 px-3 mr-2 focus:outline-none focus:shadow-outline"
-            type="text"
-            name="movieName"
-            placeholder="Movie Name..."
-        />
-        <button class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-            Ajouter
-        </button>
-    </div>
-
-    <div class="flex items-center mb-2">
-        <div class='w-1/2'>
-            <img class=' object-cover mr-4' src='<?php echo $filmImage ?>' alt='Photo' />
-        </div>
-        <div class='w-1/2'>
-            <div class='pt-3'>
-                <h3 class='text-lg font-semibold pt-3'><?php echo $filmName ?></h3>
-                <p class='text-gray-600'><?php echo $filmSummary ?></p>
-                <p class='text-gray-600'><a href="<?= $youtube_link ?>" target="_blank">Trailer</a></p>
-            </div>
-            <div class='flex justify-center pt-3'>
-                <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Valider</button>
-            </div>
-        </div>
-    </div>
-</form>
-
-    </div>
-
-    </section>
-</body>
-
-</html>
