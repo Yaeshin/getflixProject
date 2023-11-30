@@ -25,12 +25,12 @@
               <label class="block text-slate-700 mb-1 text-center" for="pseudo_inscription">Pseudo</label>
               <input type="text" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="pseudo_inscription" name="pseudo_inscription"/>
             </div>
-          <div class="block ">
+            <div class="block ">
               <label class="block text-slate-700 mb-1 text-center" for="password_inscription">Password</label>
               <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="password_inscription" name="password_inscription">
               
             </div>
-          <div class="block ">
+            <div class="block ">
               <label class="block text-slate-700 mb-1 text-center mt-3"> Confirmation Password</label>
               <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************">
               
