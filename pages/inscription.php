@@ -11,32 +11,30 @@
         <div class="justify-center border-2  rounded-md border-gray-700 p-7 mt-5 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
           <div class="max-w-md  my-3  opacity-90 mx-10">
             <div class="flex justify-center">
-         
-          <h1 class="text-2xl text-zinc-600 font-bold">Inscription</h1>
-      </div>
-
-      <form class="grid place-content-center" action="" method="get">
+              <h1 class="text-2xl text-zinc-600 font-bold">Inscription</h1>
+            </div>
+            <form class="grid place-content-center" action="" method="get">
+            <div class="block ">
+                <label class="block text-slate-700 mb-1  mt-5 text-center" for="email_inscription">Email</span>
+                <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "exemple@gmail.com" id="email_inscription" name="email_inscription"/>
+                <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
+                  Please provide a valid email address.
+                </p>
+              </div>
           <div class="block ">
-              <label class="block text-slate-700 mb-1  mt-5 text-center">Email</span>
-              <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "exemple@gmail.com"/>
+              <label class="block text-slate-700 mb-1 text-center" for="pseudo_inscription">Pseudo</span>
+              <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="pseudo_inscription" name="pseudo_inscription"/>
               <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
                 Please provide a valid email address.
               </p>
             </div>
           <div class="block ">
-              <label class="block text-slate-700 mb-1 text-center">Pseudo</span>
-              <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe"/>
-              <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
-                Please provide a valid email address.
-              </p>
-            </div>
-          <div class="block ">
-              <label class="block text-slate-700 mb-1 text-center">Password</label>
-              <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************">
+              <label class="block text-slate-700 mb-1 text-center" for="password_inscription">Password</label>
+              <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="password_inscription" name="password_inscription">
               
             </div>
           <div class="block ">
-              <label class="block text-slate-700 mb-1 text-center mt-3">Password</label>
+              <label class="block text-slate-700 mb-1 text-center mt-3"> Confirmation Password</label>
               <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************">
               
             </div>
