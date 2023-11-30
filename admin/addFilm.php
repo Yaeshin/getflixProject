@@ -1,5 +1,5 @@
 <?php
-include 'api.php';
+include '../config.php';
 
 // Initialisation des variables avec des valeurs par défaut
 $filmName = '';
