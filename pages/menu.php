@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Menu</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             display: flex;
@@ -90,7 +91,18 @@
             <input type="text" placeholder="Rechercher..." class="py-2 px-4 rounded-full focus:outline-none">
         </div>
     </div>
-
+    <main>
+        <div class="card w-60 bg-base-100 shadow-xl">
+            <figure><img src="../img/test-img1.jpg" alt="Shoes" /></figure>
+            <div class="card-body">
+                <h2 class="card-title">Shoes!</h2>
+                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <div class="card-actions justify-end">
+                <button class="btn btn-primary">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
 
     <script>
