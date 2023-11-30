@@ -15,18 +15,15 @@
             </div>
             <form class="grid place-content-center" action="" method="get">
             <div class="block ">
-                <label class="block text-slate-700 mb-1  mt-5 text-center" for="email_inscription">Email</span>
+                <label class="block text-slate-700 mb-1  mt-5 text-center" for="email_inscription">Email</label>
                 <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "exemple@gmail.com" id="email_inscription" name="email_inscription"/>
                 <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
                   Please provide a valid email address.
                 </p>
               </div>
           <div class="block ">
-              <label class="block text-slate-700 mb-1 text-center" for="pseudo_inscription">Pseudo</span>
-              <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="pseudo_inscription" name="pseudo_inscription"/>
-              <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
-                Please provide a valid email address.
-              </p>
+              <label class="block text-slate-700 mb-1 text-center" for="pseudo_inscription">Pseudo</label>
+              <input type="text" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="pseudo_inscription" name="pseudo_inscription"/>
             </div>
           <div class="block ">
               <label class="block text-slate-700 mb-1 text-center" for="password_inscription">Password</label>
