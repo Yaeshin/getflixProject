@@ -76,7 +76,7 @@ if (isset($_POST['movieName'])) { // Utilisez POST ici
 
 <head>
     <meta charset="UTF-8">
-    <title>Layout avec Tailwind CSS</title>
+    <title>Ajouter un film</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
