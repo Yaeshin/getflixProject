@@ -8,13 +8,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<div class="grid min-h-screen h-80 grid place-content-center bg-slate-700 shadow-2xl">
+<!-- <div class="grid min-h-screen h-80 grid place-content-center bg-slate-700 shadow-2xl">
         <div class="justify-center border-2  rounded-md border-gray-700 p-7 mt-5 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
                 <div class="grid grid-rows-3 grid-flow-col gap-4 bg-bg-slate-300  h-150 w-150 p-4 ">
                     <div class="row-span-3 mx-10"> 
                         <p>Profil</p>
                         <div class="flex items-center justify-center w-full">
-                            <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                            <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                                 
                         <div class="flex flex-col items-center justify-center pt-5 pb-6">
                             <img class="object-cover h-40 w-40 bg-white" src="./../img/profile.png" type="file">
@@ -51,9 +51,19 @@
                     </div>
                 </div>
         </div>
-    </div>
-
-
+    </div> -->
+        
+        <div class="bg-blue-400 min-h-screen flex items-center justify-center bg-slate-700">
+            <div class="grid grid-rows-4 grid-cols-2 gap-4 gap-2 border-2 rounded-md border-gray-400 m-10 bg-slate-300 w-full h-80">
+            
+                
+                <div class="row-start-1 row-span-3 bg-black">3</div>
+                <div class="row-span-3 bg-black"></div>
+                <div class="cols-start-1 col-span-2 bg-black"></div>
+            </div>
+            
+        </div>
+    
 
 
 </body>
