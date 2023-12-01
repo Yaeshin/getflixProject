@@ -98,19 +98,21 @@ if (isset($_POST['movieName'])) { // Utilisez POST ici
         </button>
     </div>
 
-    <div class="flex items-center mb-2">
-        <div class='w-1/2'>
-            <img class=' object-cover mr-4' src='<?php echo $filmImage ?>' alt='Photo' />
+    <div class="flex flex-col items-center mb-2">
+        <div class="flex flex-row">
+            <div class='flex items-center w-1/2'>
+                <img class='object-cover mr-4' src='<?php echo $filmImage ?>' alt='Photo' />
+            </div>
+            <div class='w-1/2 ml-5'>
+                <div class='pt-3'>
+                    <h3 class='text-lg font-semibold py-3'><?php echo $filmName ?></h3>
+                    <p class='text-gray-600 pb-5'><?php echo $filmSummary ?></p>
+                    <p class='pt-6 text-center'><a href="<?= $youtube_link ?>" class="bg-red-500 hover:bg-red-700 text-white px-3 py-2 rounded"target="_blank">Trailer</a></p>
+                </div>
+            </div>
         </div>
-        <div class='w-1/2'>
-            <div class='pt-3'>
-                <h3 class='text-lg font-semibold pt-3'><?php echo $filmName ?></h3>
-                <p class='text-gray-600'><?php echo $filmSummary ?></p>
-                <p class='text-gray-600'><a href="<?= $youtube_link ?>" target="_blank">Trailer</a></p>
-            </div>
-            <div class='flex justify-center pt-3'>
-                <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Valider</button>
-            </div>
+        <div class='flex justify-center pt-6'>
+            <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Valider</button>
         </div>
     </div>
 </form>
