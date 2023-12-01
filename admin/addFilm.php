@@ -85,7 +85,6 @@ if (isset($_POST['movieName'])) { // Utilisez POST ici
     <section class="w-4/5 m-5 p-8 bg-neutral-200 rounded-md flex justify-center items-center">
     <div class="w-full max-w-md">
     <form class="w-full max-w-md" method="post" action="">
-    <!-- Première partie du formulaire -->
     <div class="m-5 pb-3 flex items-center">
         <input
             class="w-full border rounded py-2 px-3 mr-2 focus:outline-none focus:shadow-outline"
