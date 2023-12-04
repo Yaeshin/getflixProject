@@ -1,6 +1,6 @@
 <?php 
 include '../config.php';
-
+include 'db.class.php'; 
 
 // Initialisation des variables avec des valeurs par défaut
 $filmName = '';
@@ -11,7 +11,6 @@ $idfilm = '';
 $filmRuntime = '';
 $filmYear = '';
 $filmGenres = '';
-
 
 // Traitement de la recherche lorsque le formulaire est soumis
 if (isset($_POST['movieName'])) { // Utilisez POST ici
@@ -46,7 +45,6 @@ if (isset($_POST['movieName'])) { // Utilisez POST ici
 
         // Récupérer les détails du film
         $filmName = $data['title'];
-        //$filmYear = substr($data['release_date'], 0, 4);
         $filmYear = isset($data['release_date']) ? intval(substr($data['release_date'], 0, 4)) : null;
         $filmGenres = $data['genres'];
         $filmRuntime = $data['runtime'];
@@ -74,12 +72,18 @@ if (isset($_POST['movieName'])) { // Utilisez POST ici
         $last_key_value = end($data['results'])['key'];
 
         $youtube_link = "https://www.youtube.com/watch?v={$last_key_value}";
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<insert php >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
     }
 }
-global $idfilm, $filmName, $filmSummary, $youtube_link, $filmImage, $idfilm, $filmRuntime, $filmYear, $filmGenres;
-include 'db.class.php'; 
+
+// Vérifier si le formulaire a été soumis
+if (isset($_POST['submitBtn'])) {
+    // Instancier la classe Db
+    $db = new Db($conn);
+
+    // Appeler la méthode addFilm
+    $db->addFilm($idfilm, mysqli_real_escape_string($conn, $filmName), mysqli_real_escape_string($conn, $filmSummary),
+        'https://image.tmdb.org/t/p/w500' . $filmImage, $filmRuntime, $youtube_link, $filmYear, $filmGenres);
+}
 ?>
 
 <!DOCTYPE html>
@@ -94,42 +98,39 @@ include 'db.class.php';
 <body class="bg-stone-700 flex">
     <?php include "../styles/navAdmin.php"; ?>
     <section class="w-4/5 m-5 p-8 bg-neutral-200 rounded-md flex justify-center items-center">
-    <div class="w-full max-w-md">
-    <form class="w-full max-w-md" method="post" action="">
-    <!-- Première partie du formulaire -->
-    <div class="m-5 pb-3 flex items-center">
-        <input
-            class="w-full border rounded py-2 px-3 mr-2 focus:outline-none focus:shadow-outline"
-            type="text"
-            name="movieName"
-            placeholder="Movie Name..."
-            value="<?php echo $filmName; ?>"
-        />
-        <button class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-            Ajouter
-        </button>
-    </div>
+        <div class="w-full max-w-md">
+            <form class="w-full max-w-md" method="post" action="">
+                <!-- Première partie du formulaire -->
+                <div class="m-5 pb-3 flex items-center">
+                    <input
+                        class="w-full border rounded py-2 px-3 mr-2 focus:outline-none focus:shadow-outline"
+                        type="text"
+                        name="movieName"
+                        placeholder="Movie Name..."
+                    />
+                    <button class="bg-blue-400 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" name='submitBtn'>
+                        Ajouter
+                    </button>
+                </div>
 
-    <div class="flex items-center mb-2">
-        <div class='w-1/2'>
-            <img class=' object-cover mr-4' src='<?php echo $filmImage ?>' alt='Photo' />
-        </div>
-        <div class='w-1/2'>
-            <div class='pt-3'>
-                <h3 class='text-lg font-semibold pt-3'><?php echo $filmName ?></h3>
-                <p class='text-gray-600'><?php echo $filmSummary ?></p>
-                <p class='text-gray-600'><a href="<?= $youtube_link ?>" target="_blank">Trailer</a></p>
+                <div class="flex items-center mb-2">
+                    <div class='w-1/2'>
+                        <img class=' object-cover mr-4' src='<?php echo $filmImage ?>' alt='Photo' />
+                    </div>
+                    <div class='w-1/2'>
+                        <div class='pt-3'>
+                            <h3 class='text-lg font-semibold pt-3'><?php echo $filmName ?></h3>
+                            <p class='text-gray-600'><?php echo $filmSummary ?></p>
+                            <p class='text-gray-600'><a href="<?= $youtube_link ?>" target="_blank">Trailer</a></p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+            <div class='flex justify-center pt-3'>
+            <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' name='submitBtn'>Valider</button>
             </div>
-            
         </div>
-    </div>
-
-<div class='flex justify-center pt-3'>
-            <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' name='submitBtn' type='submit'>Valider</button>
-
-            </div>
-    </div>
-</form>
     </section>
 </body>
 
