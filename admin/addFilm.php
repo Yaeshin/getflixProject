@@ -110,24 +110,15 @@ include 'db.class.php';
         </button>
     </div>
 
-    <div class="flex items-center mb-2">
-        <div class='w-1/2'>
-            <img class=' object-cover mr-4' src='<?php echo $filmImage ?>' alt='Photo' />
-        </div>
-        <div class='w-1/2'>
-            <div class='pt-3'>
-                <h3 class='text-lg font-semibold pt-3'><?php echo $filmName ?></h3>
-                <p class='text-gray-600'><?php echo $filmSummary ?></p>
-                <p class='text-gray-600'><a href="<?= $youtube_link ?>" target="_blank">Trailer</a></p>
+    <div class="flex flex-col items-center mb-2">
+        <div class="flex flex-row">
+            <div class='flex items-center w-1/2'>
+                <img class='object-cover mr-4' src='<?php echo $filmImage ?>' alt='Photo' />
             </div>
-            
-        </div>
-    </div>
-
-<div class='flex justify-center pt-3'>
-            <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' name='submitBtn' type='submit'>Valider</button>
-
+            <div class='flex justify-center pt-3'>
+                <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' name='submitBtn' type='submit'>Valider</button>
             </div>
+        </div>
     </div>
 </form>
     </section>
