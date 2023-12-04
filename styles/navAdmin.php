@@ -9,6 +9,7 @@
             <a href="../admin/addFilm.php" class="bg-neutral-100 text-blue-600 text-xl p-3 mb-3 rounded-md hover:scale-110">Ajouter Film</a>
             <a href="../admin/gestionFilms.php" class="bg-neutral-100 text-blue-600 text-xl p-3 mb-3 rounded-md hover:scale-110">Gestion Film</a>
             <a href="../admin/gestionCommentaires.php" class="bg-neutral-100 text-blue-600 text-xl p-3 mb-3 rounded-md hover:scale-110">Gestion Commentaire</a>
+            <a href="../admin/gestionContact.php" class="bg-neutral-100 text-blue-600 text-xl p-3 mb-3 rounded-md hover:scale-110">Contact Client</a>
         </div>
         <div class="space-y-4 flex flex-col mt-5">
             <a href="../index.php" class="bg-neutral-100 text-blue-600 text-xl p-3 mb-3 rounded-md hover:scale-110">Quitter</a>
