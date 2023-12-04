@@ -14,10 +14,26 @@
                         <div class="row-span-3 mx-10 "> 
                             <p>Profil</p>
                             <div class="flex items-center justify-center w-full">
-                                <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                            <div class="flex  flex-col items-center justify-center pt-5 pb-6 flex flex-col w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50 relative">
+                                <div>
+                                <img class="object-cover h-4/5 w-auto bg-gray-300 absolute top-2 left-2 right-2 " src="./../img/profile.png">
+                                </div>
+                                       <div class="">
+                                       <input class="block w-5/6 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 absolute left-2 right-2 bottom-2 " id="file_input" type="file">
+                                       </div>
+                                    <!-- <input id="dropzone-file" type="file" class="hidden" placeholder="upload img"/> -->
+
+                                    </div>
+                                    <!-- <div class="mb-4">
+                                        <img
+                                            src="https://tecdn.b-cdn.net/img/new/standard/city/047.jpg"
+                                            class="h-auto max-w-full rounded-lg"
+                                            alt="" />
+                                    </div> -->
+                                <!-- <label for="dropzone-file" class="flex flex-col items-center justify-center  rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"> -->
                                     
                                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                        <img class="object-cover h-40 w-40 bg-white" src="./../img/profile.png" type="file">
+                                    
                                     </div>
                                     <input id="dropzone-file" type="file" class="hidden" />
                                 </label>
