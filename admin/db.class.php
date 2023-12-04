@@ -32,15 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitBtn'])) {
         echo "Erreur d'insertion : " . mysqli_error($conn);
     }
 
-     // Ajouter des déclarations echo pour déboguer
-   echo "film_Iddb: " . $film_Iddb . "<br>";
-   echo "filmNamedb: " . $filmNamedb . "<br>";
-   echo "filmSummarydb: " . $filmSummarydb . "<br>";
-   echo "filmImagedb: " . $filmImagedb . "<br>";
-   echo "filmRuntimedb: " . $filmRuntimedb . "<br>";
-   echo "youtube_linkdb: " . $youtube_linkdb . "<br>";
-   echo "filmYeardb: " . $filmYeardb . "<br>";
-   echo "filmGenresdb: " . $filmGenresdb . "<br>";
+//      // Ajouter des déclarations echo pour déboguer
+//    echo "film_Iddb: " . $film_Iddb . "<br>";
+//    echo "filmNamedb: " . $filmNamedb . "<br>";
+//    echo "filmSummarydb: " . $filmSummarydb . "<br>";
+//    echo "filmImagedb: " . $filmImagedb . "<br>";
+//    echo "filmRuntimedb: " . $filmRuntimedb . "<br>";
+//    echo "youtube_linkdb: " . $youtube_linkdb . "<br>";
+//    echo "filmYeardb: " . $filmYeardb . "<br>";
+//    echo "filmGenresdb: " . $filmGenresdb . "<br>";
 }
 
 
