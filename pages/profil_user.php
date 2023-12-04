@@ -4,67 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <title>Profil</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<!-- <div class="grid min-h-screen h-80 grid place-content-center bg-slate-700 shadow-2xl">
-        <div class="justify-center border-2  rounded-md border-gray-700 p-7 mt-5 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
-                <div class="grid grid-rows-3 grid-flow-col gap-4 bg-bg-slate-300  h-150 w-150 p-4 ">
-                    <div class="row-span-3 mx-10"> 
-                        <p>Profil</p>
-                        <div class="flex items-center justify-center w-full">
-                            <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                
-                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                            <img class="object-cover h-40 w-40 bg-white" src="./../img/profile.png" type="file">
-            
+    <div class="grid min-h-screen h-80 grid place-content-center bg-slate-700 shadow-2xl">
+            <div class="justify-center border-2  rounded-md border-gray-700 p-7 mt-5 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
+                    <div class="grid grid-rows-3 grid-flow-col gap-10 bg-bg-slate-300  h-150 w-150 p-5">
+                        <div class="row-span-3 mx-10 "> 
+                            <p>Profil</p>
+                            <div class="flex items-center justify-center w-full">
+                                <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                    
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <img class="object-cover h-40 w-40 bg-white" src="./../img/profile.png" type="file">
+                                    </div>
+                                    <input id="dropzone-file" type="file" class="hidden" />
+                                </label>
+                            </div> 
+                            <div class="block  mt-5 gap">
+                                <label class="block text-black mb-1 " for="pseudo_inscription">Pseudo</label>
+                                <input type="text" class="peer bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="pseudo_inscription" name="pseudo_inscription"/>
+                            </div>
                         </div>
-                            <input id="dropzone-file" type="file" class="hidden" />
-                        </label>
-                        </div> 
-                        <div class="block  mt-5">
-                            <label class="block text-black mb-1 " for="pseudo_inscription">Pseudo</label>
-                            <input type="text" class="peer bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="pseudo_inscription" name="pseudo_inscription"/>
+                        <div class="row-span-4 col-span-2 grid grid-cols-1 gap-2">
+                            <div class="block ">
+                                <label class="block text-black mb-1 " for="email_inscription">Adresse Mail</label>
+                                <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "exemple@gmail.com" id="email_inscription" name="email_inscription"/>
+                                <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
+                                Please provide a valid email address.
+                                </p>
+                        </div>
+                        <div class="block">
+                            <label class="block text-black " for="password_inscription">Mot de passe</label>
+                            <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="password_inscription" name="password_inscription">
+                        </div>
+                        <div class="block mt-10">
+                            <label class="block text-black"> Répéter le mot de passe </label>
+                            <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************">
                         </div>
                     </div>
-                    <div class="row-span-2 col-span-2">
-                        <div class="block ">
-                            <label class="block text-black mb-1  mt-5 " for="email_inscription">Email</label>
-                            <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "exemple@gmail.com" id="email_inscription" name="email_inscription"/>
-                            <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
-                            Please provide a valid email address.
-                            </p>
-                    </div>
-              <div class="block ">
-              <label class="block text-black mb-1 text-center" for="password_inscription">Password</label>
-              <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="password_inscription" name="password_inscription">
-              
-            </div>
-            <div class="block ">
-              <label class="block text-black mb-1 mt-3"> Confirmation Password</label>
-              <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************">
-              
-            </div>
-            </div>
-
-                    </div>
-                </div>
-        </div>
-    </div> -->
-        
-        <div class="bg-blue-400 min-h-screen flex items-center justify-center bg-slate-700">
-            <div class="grid grid-rows-4 grid-cols-2 gap-4 gap-2 border-2 rounded-md border-gray-400 m-10 bg-slate-300 w-full h-80">
-            
                 
-                <div class="row-start-1 row-span-3 bg-black">3</div>
-                <div class="row-span-3 bg-black"></div>
-                <div class="cols-start-1 col-span-2 bg-black"></div>
+                </div>
+                <div class=" flex justify-center rows-start-1  ">
+                    <button  class=" bg-sky-500 hover:bg-sky-700 py-2 px-3 text-xl  mx-auto text-white rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg shadow-blue-500/50">
+                    S'inscrire
+                    </button>
+                </div>
             </div>
-            
         </div>
     
-
+        
 
 </body>
 </html>
