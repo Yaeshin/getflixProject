@@ -7,11 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-stone-700 flex">
+<body class="bg-stone-700 flex h-screen overflow-hidden">
     <?php include "../styles/navAdmin.php"; ?>
-    <section class="w-4/5 m-5 p-8 bg-neutral-200 rounded-md">
-    <h1 class="text-center text-2xl pb-6">Contact Client</h1>
-    <div class="flex justify-center items-center">
+    <section class="w-4/5 m-5 p-8 bg-neutral-200 rounded-md overflow-auto h-95vh">
+        <h1 class="text-center text-2xl pb-6">Contact</h1>
+        <div class="flex justify-center items-center">
         <table class="table-auto">
             <thead>
                 <tr>
