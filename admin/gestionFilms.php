@@ -19,9 +19,9 @@ $conn->close();
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-stone-700 flex">
+<body class="bg-stone-700 flex h-screen overflow-hidden">
     <?php include "../styles/navAdmin.php"; ?>
-    <section class="w-4/5 m-5 p-8 bg-neutral-200 rounded-md">
+    <section class="w-4/5 m-5 p-8 bg-neutral-200 rounded-md overflow-auto h-95vh">
         <h1 class="text-center text-2xl pb-6">Gestion des Films</h1>
         <div class="flex justify-center items-center">
             <table class="table-auto">
