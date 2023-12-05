@@ -25,25 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitBtn'])) {
     $insertSuccess = $db->addFilm($film_Iddb, mysqli_real_escape_string($conn, $filmNamedb), mysqli_real_escape_string($conn, $filmSummarydb),
         'https://image.tmdb.org/t/p/w500' . $filmImagedb, $filmRuntimedb, $youtube_linkdb, $filmYeardb, $filmGenresdb);
 
-    // Vérifier le résultat de l'insertion
-    if ($insertSuccess) {
-        echo "<p>Les données ont été ajoutées à la base de données.</p>";
-    } else {
-        echo "Erreur d'insertion : " . mysqli_error($conn);
-    }
-
-//      // Ajouter des déclarations echo pour déboguer
-//    echo "film_Iddb: " . $film_Iddb . "<br>";
-//    echo "filmNamedb: " . $filmNamedb . "<br>";
-//    echo "filmSummarydb: " . $filmSummarydb . "<br>";
-//    echo "filmImagedb: " . $filmImagedb . "<br>";
-//    echo "filmRuntimedb: " . $filmRuntimedb . "<br>";
-//    echo "youtube_linkdb: " . $youtube_linkdb . "<br>";
-//    echo "filmYeardb: " . $filmYeardb . "<br>";
-//    echo "filmGenresdb: " . $filmGenresdb . "<br>";
 }
-
-
 class Db {
     
     private $conn;
@@ -53,21 +35,37 @@ class Db {
     }
 
     public function addFilm($film_Iddb, $filmNamedb, $filmSummarydb, $filmImagedb, $filmRuntimedb, $youtube_linkdb, $filmYeardb, $filmGenresdb) {
+        // Vérifier si l'ID existe déjà dans la base de données
+        $sqlCheck = "SELECT id_movie FROM movies WHERE id_movie = ?";
+        $stmtCheck = mysqli_prepare($this->conn, $sqlCheck);
+        mysqli_stmt_bind_param($stmtCheck, "i", $film_Iddb);
+        mysqli_stmt_execute($stmtCheck);
+        mysqli_stmt_store_result($stmtCheck);
+
+        if (mysqli_stmt_num_rows($stmtCheck) > 0) {
+            mysqli_stmt_close($stmtCheck);
+            //echo "Erreur : Le film avec l'ID $film_Iddb existe déjà dans la base de données.";
+            return false; // Indiquer que l'ajout a échoué
+        }
+        //$exists = mysqli_stmt_num_rows($stmtCheck) > 0;
+
+        // Fermer la déclaration de vérification
+        mysqli_stmt_close($stmtCheck);
+
+        // L'ID n'existe pas, procéder à l'insertion
         $sqlInsert = "INSERT INTO movies (id_movie, title, description, image, duration, trailer, release_date, categories) 
                       VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-        $stmt = mysqli_prepare($this->conn, $sqlInsert);
-        mysqli_stmt_bind_param($stmt, "isssisis", $film_Iddb, $filmNamedb, $filmSummarydb, $filmImagedb, $filmRuntimedb, $youtube_linkdb, $filmYeardb, $filmGenresdb);
+        
+        $stmtInsert = mysqli_prepare($this->conn, $sqlInsert);
+        mysqli_stmt_bind_param($stmtInsert, "isssisis", $film_Iddb, $filmNamedb, $filmSummarydb, $filmImagedb, $filmRuntimedb, $youtube_linkdb, $filmYeardb, $filmGenresdb);
 
         // Exécuter la requête
-        $success = mysqli_stmt_execute($stmt);
+        $success = mysqli_stmt_execute($stmtInsert);
 
         // Fermer la déclaration
-        mysqli_stmt_close($stmt);
-
+        mysqli_stmt_close($stmtInsert);
 
         return $success;
     }
 }
-
 ?>
