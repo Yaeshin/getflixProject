@@ -87,7 +87,7 @@ include 'db.class.php';
 
 <head>
     <meta charset="UTF-8">
-    <title>Layout avec Tailwind CSS</title>
+    <title>Ajouter un film</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -96,7 +96,6 @@ include 'db.class.php';
     <section class="w-4/5 m-5 p-8 bg-neutral-200 rounded-md flex justify-center items-center">
     <div class="w-full max-w-md">
     <form class="w-full max-w-md" method="post" action="">
-    <!-- Première partie du formulaire -->
     <div class="m-5 pb-3 flex items-center">
         <input
             class="w-full border rounded py-2 px-3 mr-2 focus:outline-none focus:shadow-outline"
@@ -114,6 +113,14 @@ include 'db.class.php';
         <div class="flex flex-row">
             <div class='flex items-center w-1/2'>
                 <img class='object-cover mr-4' src='<?php echo $filmImage ?>' alt='Photo' />
+            </div>
+            <div class='w-1/2 ml-5'>
+                <div class='pt-3'>
+                    <h3 class='text-lg font-semibold py-3'><?php echo $filmName ?></h3>
+                    <p class='text-gray-600 pb-5'><?php echo $filmSummary ?></p>
+                    <p class='pt-6 text-center'><a href="<?= $youtube_link ?>" class="bg-red-500 hover:bg-red-700 text-white px-3 py-2 rounded"target="_blank">Trailer</a></p>
+                </div>
+            </div>
             </div>
             <div class='flex justify-center pt-3'>
                 <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' name='submitBtn' type='submit'>Valider</button>
