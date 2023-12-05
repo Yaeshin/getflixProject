@@ -47,7 +47,8 @@ $conn->close();
                         $categoriesString = implode('<br>', $categoriesArray);
                         echo '<td class="px-8 py-4 text-center">' . $categoriesString . '</td>';
                         
-                        echo '<td class="px-4 py-2 text-center"><a href="editerFilms.php" class="action-link text-white bg-orange-600 rounded-lg p-2">Edit</a></td>';
+                        echo '<td class="px-4 py-2 text-center"><a href="editerFilms.php?id_movie=' . $ligne['id_movie'] . '" class="action-link text-white bg-orange-600 rounded-lg p-2">Edit</a></td>';
+
                         echo '</tr>';
                     }
                     ?>
