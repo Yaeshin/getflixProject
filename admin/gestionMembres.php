@@ -1,3 +1,23 @@
+<?php
+include '../config.php';
+
+// Utilisez la connexion mysqli au lieu de PDO
+$query = "SELECT * FROM users";
+$result = $conn->query($query);
+
+// Vérifiez si la requête a réussi
+if ($result === false) {
+    die("Erreur de requête : " . $conn->error);
+}
+
+// Récupérez les utilisateurs
+$users = [];
+while ($row = $result->fetch_assoc()) {
+    $users[] = $row;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,71 +41,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                </tr>
+                
+                <?php foreach ($users as $user): ?>
+                        <tr class="pb-5">
+                            <td class="px-8 py-4 text-center"><?= $user['nickname'] ?></td>
+                            <td class="px-8 py-4 text-center"><?= $user['email'] ?></td>
+                            <td class="px-4 py-2 text-center">
+                                <a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
             </tbody>
         </table>
     </div>
