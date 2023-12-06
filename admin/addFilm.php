@@ -130,7 +130,8 @@ $db = new Db($conn);
             <div>
                 <?php
                     if ($insertSuccess) {
-                        echo '<p class="text-green-500 font-bold">Les données ont été ajoutées avec succès.</p>';
+                        echo '<p class="text-green-500 font-bold">Data has been successfully added.</p>
+                        ';
                     } else {
                         // Vérifier l'existence du film dans la base de données
                         $checkQuery = "SELECT COUNT(*) FROM movies WHERE id_movie = ?";
@@ -142,7 +143,7 @@ $db = new Db($conn);
                         mysqli_stmt_close($stmtCheck);
 
                         if ($count > 0) {
-                            echo '<p class="text-red-500 font-bold">Erreur : Le film  ' . $filmName . ' existe déjà dans la base de données.</p>';
+                            echo '<p class="text-red-500 font-bold">Error: The film ' . $filmName . ' already exists in the database.</p>';
                         }
                     }
                 ?>
