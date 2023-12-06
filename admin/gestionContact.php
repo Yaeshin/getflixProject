@@ -1,3 +1,22 @@
+<?php
+include '../config.php';
+
+// Utilisez la connexion mysqli au lieu de PDO
+$query = "SELECT * FROM contact";
+$result = $conn->query($query);
+
+// Vérifiez si la requête a réussi
+if ($result === false) {
+    die("Erreur de requête : " . $conn->error);
+}
+
+// Récupérez les contacts
+$contacts = [];
+while ($row = $result->fetch_assoc()) {
+    $contacts[] = $row;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,37 +31,30 @@
     <section class="w-4/5 m-5 p-8 bg-neutral-200 rounded-md overflow-auto h-95vh">
         <h1 class="text-center text-2xl pb-6">Contact</h1>
         <div class="flex justify-center items-center">
-        <table class="table-auto">
-            <thead>
-                <tr>
-                    <th class="px-8 py-4 text-center">Name</th>
-                    <th class="px-8 py-4 text-center">Email</th>
-                    <th class="px-8 py-4 text-center">Message</th>
-                    <th class="px-8 py-4 text-center">Topic</th>
-                    <th class="px-8 py-4 text-center">ACTION</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-8 py-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem voluptas nulla vero hic nihil. Sunt, ut? Eligendi doloremque laudantium cumque rem porro dolore doloribus laborum fuga sapiente ea. Adipisci, itaque.</td>
-                    <td class="px-8 py-4 text-center">Question</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Archiver</a></td>
-                </tr>
-                <tr class="pb-5">
-                    <td class="px-8 py-4 text-center">Timmy</td>
-                    <td class="px-8 py-4 text-center">exemple@test.com</td>
-                    <td class="px-8 py-4 text-center">Besoin de plus de film dans la catégorie Aventure</td>
-                    <td class="px-8 py-4 text-center">Remarque</td>
-                    <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Archiver</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th class="px-8 py-4 text-center">Name</th>
+                        <th class="px-8 py-4 text-center">Email</th>
+                        <th class="px-8 py-4 text-center">Message</th>
+                        <th class="px-8 py-4 text-center">Topic</th>
+                        <th class="px-8 py-4 text-center">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($contacts as $cont): ?>
+                        <tr class="pb-5">
+                            <td class="px-8 py-4 text-center"><?= $cont['name'] ?></td>
+                            <td class="px-8 py-4 text-center"><?= $cont['email'] ?></td>
+                            <td class="px-8 py-4 text-center"><?= $cont['message'] ?></td>
+                            <td class="px-8 py-4 text-center"><?= $cont['topic'] ?></td>
+                            <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Archiver</a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </section>
-
 </body>
 
 </html>
