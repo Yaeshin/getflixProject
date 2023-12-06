@@ -79,6 +79,7 @@
                         <div class="flex flex-col justify-center">
                             <p class="text-2xl mx-5 my-2">Date de sortie: 12/12/2012</p>
                             <p class="text-2xl mx-5 my-2">Genres: Action, Aventure</p>
+                            <p class="text-2xl mx-5 my-2">Durée: 144 minutes</p>
                             <p class="text-xl mx-5 my-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab nobis perferendis porro. Nisi numquam repudiandae quibusdam quis. Voluptatum modi similique aut consectetur dolores. Dolores minus assumenda asperiores aperiam aut alias?</p>
                         </div>
                     </div>
