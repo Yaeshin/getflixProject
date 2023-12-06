@@ -83,7 +83,7 @@
                             <p class="text-xl mx-5 my-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab nobis perferendis porro. Nisi numquam repudiandae quibusdam quis. Voluptatum modi similique aut consectetur dolores. Dolores minus assumenda asperiores aperiam aut alias?</p>
                         </div>
                     </div>
-                    <div class="w-1/2 h-full flex flex-col rounded-xl ml-3">
+                    <div class="w-1/2 h-full flex flex-col rounded-xl ml-6">
                         <iframe width="100%" height="450" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allowfullscreen class="rounded-xl"></iframe>
                         <form class="flex flex-row w-6/6 h-1/1 py-2">
                             <input type="text" class="w-5/6 h-1/1 border rounded-xl px-2 focus:outline-none focus:ring focus:border-blue-500 mr-1 p-2" placeholder="Votre commentaire...">
