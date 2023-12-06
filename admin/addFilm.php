@@ -80,6 +80,7 @@ if (isset($_POST['movieName'])) { // Utilisez POST ici
 }
 global $idfilm, $filmName, $filmSummary, $youtube_link, $filmImage, $idfilm, $filmRuntime, $filmYear, $filmGenres;
 include 'db.class.php'; 
+$db = new Db($conn);
 ?>
 
 <!DOCTYPE html>
@@ -115,8 +116,37 @@ include 'db.class.php';
             <div class='flex items-center w-1/2'>
                 <img class='object-cover mr-4' src='<?php echo $filmImage ?>' alt='Photo' />
             </div>
+            <div class='w-1/2 ml-5'>
+                <div class='pt-3'>
+                    <h3 class='text-lg font-semibold py-3'><?php echo $filmName ?></h3>
+                    <p class='text-gray-600 pb-5'><?php echo $filmSummary ?></p>
+                    <p class='pt-6 text-center'><a href="<?= $youtube_link ?>" class="bg-red-500 hover:bg-red-700 text-white px-3 py-2 rounded"target="_blank">Trailer</a></p>
+                </div>
+            </div>
+            </div>
             <div class='flex justify-center pt-3'>
                 <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' name='submitBtn' type='submit'>Valider</button>
+            </div>
+            <div>
+                <?php
+                    if ($insertSuccess) {
+                        echo '<p class="text-green-500 font-bold">Data has been successfully added.</p>
+                        ';
+                    } else {
+                        // Vérifier l'existence du film dans la base de données
+                        $checkQuery = "SELECT COUNT(*) FROM movies WHERE id_movie = ?";
+                        $stmtCheck = mysqli_prepare($conn, $checkQuery);
+                        mysqli_stmt_bind_param($stmtCheck, "i", $idfilm);
+                        mysqli_stmt_execute($stmtCheck);
+                        mysqli_stmt_bind_result($stmtCheck, $count);
+                        mysqli_stmt_fetch($stmtCheck);
+                        mysqli_stmt_close($stmtCheck);
+
+                        if ($count > 0) {
+                            echo '<p class="text-red-500 font-bold">Error: The film ' . $filmName . ' already exists in the database.</p>';
+                        }
+                    }
+                ?>
             </div>
         </div>
     </div>
