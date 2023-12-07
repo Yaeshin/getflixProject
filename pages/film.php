@@ -1,3 +1,48 @@
+<?php
+include '../config.php';
+
+$film_id = 484641; // par exemple
+
+// Requête pour récupérer les informations du film
+$query = "SELECT * FROM movies WHERE id_movie = $film_id";
+
+$result = $conn->query($query);
+
+// Vérifier si la requête a réussi
+if ($result === false) {
+    die("Erreur de requête : " . $conn->error);
+}
+
+// Récupérer les informations du film
+$film = $result->fetch_assoc();
+
+// Requête pour récupérer les commentaires
+$commentQuery = "SELECT * FROM comments WHERE movie = $film_id";
+$commentResult = $conn->query($commentQuery);
+
+// Vérifier si la requête a réussi
+if ($commentResult === false) {
+    die("Erreur de requête : " . $conn->error);
+}
+
+// Récupérer les commentaires
+$comments = [];
+while ($comment = $commentResult->fetch_assoc()) {
+    $comments[] = $comment;
+}
+
+// Fermer la connexion à la base de données
+$conn->close();
+
+function formatDuration($durationMinutes) {
+    $hours = floor($durationMinutes / 60);
+    $minutes = $durationMinutes % 60;
+
+    return $hours . 'h' . sprintf('%02d', $minutes);
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -102,16 +147,11 @@
                     <div class="flex flex-col bg-gray-800 rounded-2xl px-2 py-1 my-2 mx-1">
                         <h2 class="text-white text-xl">Name</h2>
                         <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus reprehenderit voluptatum voluptate corporis nihil reiciendis quas cumque expedita, iure in atque culpa quis, ad veniam amet asperiores iusto. Veritatis, tempora.</p>
+
                     </div>
-
-                </div>
-
-            </div>
-        </div>
+              </div>
+         </div>
     </main>
-
-
-
 
 </body>
 
