@@ -1,3 +1,25 @@
+<?php
+include '../config.php';
+
+$query = "SELECT comments.*, users.nickname, movies.title
+          FROM comments
+          INNER JOIN users ON comments.user = users.id_user
+          INNER JOIN movies ON comments.movie = movies.id_movie";
+
+$result = $conn->query($query);
+
+// Vérifiez si la requête a réussi
+if ($result === false) {
+    die("Erreur de requête : " . $conn->error);
+}
+
+// Récupérez les commentaires
+$comments = [];
+while ($row = $result->fetch_assoc()) {
+    $comments[] = $row;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +37,7 @@
             <table class="table-auto">
                 <thead>
                     <tr>
-                        <th class="px-8 py-4 text-center">Email</th>
+                        <!-- <th class="px-8 py-4 text-center">Email</th> -->
                         <th class="px-8 py-4 text-center">Author</th>
                         <th class="px-8 py-4 text-center">Date</th>
                         <th class="px-8 py-4 text-center">Movie</th>
@@ -24,22 +46,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="pb-5">
-                        <td class="px-8 py-4 text-center">exemple@test.com</td>
-                        <td class="px-8 py-4 text-center">Player21</td>
-                        <td class="px-8 py-4 text-center">12/08/2013</td>
-                        <td class="px-8 py-4 text-center">Star Wars</td>
-                        <td class="px-8 py-4 text-center">J'adore Star Wars !!!</td>
-                        <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                    </tr>
-                    <tr class="pb-5">
-                        <td class="px-8 py-4 text-center">exemple@test.com</td>
-                        <td class="px-8 py-4 text-center">Player2112</td>
-                        <td class="px-8 py-4 text-center">17/03/2021</td>
-                        <td class="px-8 py-4 text-center">Harry Potter</td>
-                        <td class="px-8 py-4 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis rem nesciunt incidunt cumque ex earum aperiam facere nostrum? Libero veniam minima corrupti maxime ipsum. Nostrum provident aut itaque ut repudiandae.</td>
-                        <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a></td>
-                    </tr>
+                    <?php foreach ($comments as $comment): ?>
+                        <tr class="pb-5">
+                            <!-- <td class="px-8 py-4 text-center"><?= $comment['email'] ?></td> -->
+                            <td class="px-8 py-4 text-center"><?= $comment['nickname'] ?></td>
+                            <td class="px-8 py-4 text-center"><?= $comment['date'] ?></td>
+                            <td class="px-8 py-4 text-center"><?= $comment['title'] ?></td>
+                            <td class="px-8 py-4 text-center"><?= $comment['content'] ?></td>
+                            <td class="px-4 py-2 text-center">
+                                <a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                     
                 </tbody>
             </table>
