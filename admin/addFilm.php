@@ -73,7 +73,8 @@ if (isset($_POST['movieName'])) { // Utilisez POST ici
         $first_key_value = $data['results'][0]['key'];
         $last_key_value = end($data['results'])['key'];
 
-        $youtube_link = "https://www.youtube.com/watch?v={$last_key_value}";
+        //$youtube_link = "https://www.youtube.com/watch?v={$last_key_value}";
+        $youtube_link = "https://www.youtube.com/embed/{$last_key_value}";
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<insert php >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     }
