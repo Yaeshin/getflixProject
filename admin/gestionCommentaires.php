@@ -1,10 +1,12 @@
 <?php
 include '../config.php';
+//include 'update_comment.php';
 
 $query = "SELECT comments.*, users.nickname, movies.title
           FROM comments
           INNER JOIN users ON comments.user = users.id_user
-          INNER JOIN movies ON comments.movie = movies.id_movie";
+          INNER JOIN movies ON comments.movie = movies.id_movie
+          WHERE comments.is_deleted = 0";
 
 $result = $conn->query($query);
 
@@ -18,6 +20,7 @@ $comments = [];
 while ($row = $result->fetch_assoc()) {
     $comments[] = $row;
 }
+
 ?>
 
 <!DOCTYPE html>
