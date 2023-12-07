@@ -6,70 +6,127 @@
     <title>Menu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-            margin: 0;
+        ::-webkit-scrollbar {
+            width: 3px;
         }
-
-        .header {
-            width: 100%;
-            background-color: #2d2d2d;
-            color: #fff;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
+        ::-webkit-scrollbar-track {
+            background: transparent;
         }
-
-        .menu-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .category-grid {
-            display: none;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .show-categories {
-            display: flex;
-        }
-
-        .category-link {
-            width: calc(100% / 3);
-            box-sizing: border-box;
-            text-align: center;
-            padding: 8px;
-        }
-        #categoryNav{
-            display: flex;
-            flex-direction: column;
+        ::-webkit-scrollbar-thumb {
+            background-color: #1f1f1f;
+            border-radius: 10px;
         }
     </style>
+
 </head>
 
-<body class="bg-gray-500">
-    <?php include "../styles/navBar.php"; ?>
+<body class="w-screen h-screen bg-gray-600 overflow-x-hidden">
+    <?php include "../styles/nav.php"; ?>
+    <main class="flex-1 flex flex-grow flex-col block">
+        <div class="w-full h-1/2 flex-grow">
+            <h1 class="w-full h-10vh text-white bg-gray-700 text-4xl text-center py-4">Pour Vous</h1>
+            <div class="flex justify-around p-8">
+                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
+                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
+                        </div>
+                        <img src="../img/test-img1.jpg" alt="Image" class="w-full h-full object-cover">
+                    </a>
+                </div>
+                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
+                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
+                        </div>
+                        <img src="../img/test-img2.jpg" alt="Image" class="w-full h-full object-cover">
+                    </a>
+                </div>
+                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
+                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
+                        </div>
+                        <img src="../img/test-img3.jpg" alt="Image" class="w-full h-full object-cover">
+                    </a>
+                </div>
+                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
+                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
+                        </div>
+                        <img src="../img/test-img4.jpg" alt="Image" class="w-full h-full object-cover">
+                    </a>
+                </div>
+                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
+                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
+                        </div>
+                        <img src="../img/test-img1.jpg" alt="Image" class="w-full h-full object-cover">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="w-full h-1/2 flex-grow">
+            <h1 class="w-full h-10vh text-white bg-gray-700 text-4xl text-center py-4">Revoir</h1>
+            <div class="flex justify-around p-8">
+                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
+                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
+                        </div>
+                        <img src="../img/test-img1.jpg" alt="Image" class="w-full h-full object-cover">
+                    </a>
+                </div>
+                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
+                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
+                        </div>
+                        <img src="../img/test-img3.jpg" alt="Image" class="w-full h-full object-cover">
+                    </a>
+                </div>
+                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
+                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
+                        </div>
+                        <img src="../img/test-img2.jpg" alt="Image" class="w-full h-full object-cover">
+                    </a>
+                </div>
+                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
+                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
+                        </div>
+                        <img src="../img/test-img1.jpg" alt="Image" class="w-full h-full object-cover">
+                    </a>
+                </div>
+                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
+                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
+                        </div>
+                        <img src="../img/test-img4.jpg" alt="Image" class="w-full h-full object-cover">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
 
 
 
-    <script>
-        const logo = document.getElementById('logo');
-        const categoryGrid = document.getElementById('categoryGrid');
-
-        logo.addEventListener('click', function () {
-            // Au clic sur le logo, afficher les catégories
-            categoryGrid.classList.toggle('show-categories');
-        });
-    </script>
 </body>
 
 </html>
