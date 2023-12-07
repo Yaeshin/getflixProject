@@ -80,6 +80,7 @@ if (isset($_POST['movieName'])) { // Utilisez POST ici
 }
 global $idfilm, $filmName, $filmSummary, $youtube_link, $filmImage, $idfilm, $filmRuntime, $filmYear, $filmGenres;
 include 'db.class.php'; 
+$db = new Db($conn);
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +88,7 @@ include 'db.class.php';
 
 <head>
     <meta charset="UTF-8">
-    <title>Ajouter un film</title>
+    <title>Layout avec Tailwind CSS</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -96,6 +97,7 @@ include 'db.class.php';
     <section class="w-4/5 m-5 p-8 bg-neutral-200 rounded-md flex justify-center items-center">
     <div class="w-full max-w-md">
     <form class="w-full max-w-md" method="post" action="">
+    <!-- Première partie du formulaire -->
     <div class="m-5 pb-3 flex items-center">
         <input
             class="w-full border rounded py-2 px-3 mr-2 focus:outline-none focus:shadow-outline"
@@ -124,6 +126,27 @@ include 'db.class.php';
             </div>
             <div class='flex justify-center pt-3'>
                 <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' name='submitBtn' type='submit'>Valider</button>
+            </div>
+            <div>
+                <?php
+                    if ($insertSuccess) {
+                        echo '<p class="text-green-500 font-bold">Data has been successfully added.</p>
+                        ';
+                    } else {
+                        // Vérifier l'existence du film dans la base de données
+                        $checkQuery = "SELECT COUNT(*) FROM movies WHERE id_movie = ?";
+                        $stmtCheck = mysqli_prepare($conn, $checkQuery);
+                        mysqli_stmt_bind_param($stmtCheck, "i", $idfilm);
+                        mysqli_stmt_execute($stmtCheck);
+                        mysqli_stmt_bind_result($stmtCheck, $count);
+                        mysqli_stmt_fetch($stmtCheck);
+                        mysqli_stmt_close($stmtCheck);
+
+                        if ($count > 0) {
+                            echo '<p class="text-red-500 font-bold">Error: The film ' . $filmName . ' already exists in the database.</p>';
+                        }
+                    }
+                ?>
             </div>
         </div>
     </div>
