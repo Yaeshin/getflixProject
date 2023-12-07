@@ -103,11 +103,9 @@
                         <h2 class="text-white text-xl">Name</h2>
                         <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus reprehenderit voluptatum voluptate corporis nihil reiciendis quas cumque expedita, iure in atque culpa quis, ad veniam amet asperiores iusto. Veritatis, tempora.</p>
                     </div>
-
                 </div>
 
             </div>
-        </div>
     </main>
 
 
