@@ -97,18 +97,22 @@ function formatDuration($durationMinutes) {
     </header>
     <main class="flex-1 flex flex-row block overflow-hidden">
             <div class="w-1/4 h-4/4 flex items-stretch flex-shrink-0">
+
                 <img src="<?php echo $film['image']; ?>" alt="affiche <?php echo $film['title']; ?>" class="object-cover w-full h-9/10 rounded-2xl p-3">
+
             </div>
             <div class="w-3/4 h-4/4 flex flex-col relative m-3 flex-shrink-0">
                 <div class="flex h-2/3">
                     <div class="w-1/3 h-full rounded-2xl">
                         <div class="h-5/6 bg-gray-800 rounded-2xl flex flex-col items-center justify-center px-6">
+
                             <h2 class="text-white text-3xl font-bold text-center py-4"><?php echo $film['title']; ?></h2>
                             <div class="flex flex-col justify-center">
                                 <p class="text-white text-center mx-5 my-3"><?php echo $film['description']; ?></p>
                                 <p class="text-white font-bold mx-5 my-2">Date de sortie: <?php echo $film['release_date']; ?></p>
                                 <p class="text-white font-bold mx-5 my-2">Genres: <?php echo $film['categories']; ?></p>
                                 <p class="text-white font-bold mx-5 my-2">Durée: <?php echo formatDuration($film['duration']); ?></p>
+
                             </div>
                         </div>
                         <div class="h-1/6 flex justify-center">
@@ -126,7 +130,9 @@ function formatDuration($durationMinutes) {
 
                     </div>
                     <div class="w-2/3 h-full flex flex-col rounded-xl mx-6">
+
                         <iframe src="<?php echo $film['trailer']; ?>" title="trailer <?php echo $film['title']; ?>" frameborder="0" allowfullscreen class="rounded-xl h-5/6 w-full"></iframe>
+
                         <form class="flex flex-row w-6/6 h-1/6 py-4">
                             <input type="text" class="w-5/6 border rounded-xl px-2 focus:outline-none focus:ring focus:border-blue-500 mr-1" placeholder="Votre commentaire...">
                             <button type="submit" class="w-1/6 bg-blue-500 text-white rounded-xl ml-1">Envoyer</button>
@@ -134,6 +140,7 @@ function formatDuration($durationMinutes) {
                     </div>
                 </div>
                 <div class="h-1/3 overflow-y-auto mr-4 custom-scroll">
+
                 <?php foreach ($comments as $comment): ?>
                     <div class="flex flex-col bg-zinc-800 rounded-2xl px-2 py-1 my-2 mx-1">
                         <h2 class="text-white text-xl"><?php echo $comment['nickname']; ?></h2>
@@ -141,6 +148,7 @@ function formatDuration($durationMinutes) {
                     </div>
                 <?php endforeach; ?>
                                       
+
               </div>
          </div>
     </main>
