@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <?php
 include '../config.php';
 
@@ -53,6 +55,7 @@ function formatDuration($durationMinutes) {
 ?>
 
 
+>>>>>>> a048a182bb6418a2c5944545b7792ff59e868757
 <!DOCTYPE html>
 <html lang="fr">
 

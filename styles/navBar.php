@@ -1,4 +1,5 @@
-<div class="w-screen h-36 header">
+
+    <div class="w-screen h-36 header">
     <div class="h-36 flex items-center">
         <!-- Div contenant la photo de profil et le nom de l'utilisateur -->
         <div class="h-5 w-5 rounded-full overflow-hidden">
@@ -28,4 +29,4 @@
     <div class="h-36 ml-4 flex items-center rounded-full shadow-sm">
         <input type="text" placeholder="Rechercher..." class="px-4 rounded-full focus:outline-none">
     </div>
-</div>
+    </div>
