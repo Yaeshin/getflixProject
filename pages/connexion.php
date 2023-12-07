@@ -28,7 +28,7 @@
                   
               </div>
               <div class="mt-5 flex justify-center">
-                <button  class=" bg-sky-500 hover:bg-sky-700 py-2 px-2 text-xl  mx-auto mt-5 text-white rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg shadow-blue-500/50" type="submit" valeur="connexion">
+                <button class=" bg-sky-500 hover:bg-sky-700 py-2 px-2 text-xl  mx-auto mt-5 text-white rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg shadow-blue-500/50" type="submit" value="Login">
                   Connexion
                 </button>
               </div>

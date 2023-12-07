@@ -13,30 +13,30 @@
             <div class="flex justify-center">
               <h1 class="text-2xl text-zinc-600 font-bold">Inscription</h1>
             </div>
-            <form class="grid place-content-center" action="" method="get">
+            <form class="grid place-content-center" action="index.php?action=register" method="post">
             <div class="block ">
                 <label class="block text-slate-700 mb-1  mt-5 text-center" for="email_inscription">Email</label>
-                <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "exemple@gmail.com" id="email_inscription" name="email_inscription"/>
+                <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "exemple@gmail.com" id="email" name="email_inscription" required/>
                 <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
                   Please provide a valid email address.
                 </p>
               </div>
           <div class="block ">
               <label class="block text-slate-700 mb-1 text-center" for="pseudo_inscription">Pseudo</label>
-              <input type="text" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="pseudo_inscription" name="pseudo_inscription"/>
+              <input type="text" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="username" name="pseudo_inscription" required/>
             </div>
             <div class="block ">
               <label class="block text-slate-700 mb-1 text-center" for="password_inscription">Password</label>
-              <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="password_inscription" name="password_inscription">
+              <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="password" name="password_inscription" required>
               
             </div>
             <div class="block ">
               <label class="block text-slate-700 mb-1 text-center mt-3"> Confirmation Password</label>
-              <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************">
+              <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" required>
               
             </div>
               <div class="mt-5 flex justify-center">
-                <button  class=" bg-sky-500 hover:bg-sky-700 py-2 px-3 text-xl  mx-auto mt-5 text-white rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg shadow-blue-500/50">
+                <button type="submit" name="register" class=" bg-sky-500 hover:bg-sky-700 py-2 px-3 text-xl  mx-auto mt-5 text-white rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg shadow-blue-500/50">
                   S'inscrire
                 </button>
               </div>
