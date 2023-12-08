@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Menu</title>
+    <title>Welcome To Play</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         ::-webkit-scrollbar {
@@ -21,7 +21,7 @@
 </head>
 
 <body class="w-screen h-screen bg-gray-600 overflow-x-hidden">
-    <?php include "../styles/nav.php"; ?>
+    <?php include "../styles/navBar.php"; ?>
     <main class="flex-1 flex flex-grow flex-col block">
         <div class="w-full h-1/2 flex-grow">
             <h1 class="w-full h-10vh text-white bg-gray-700 text-4xl text-center py-4">Pour Vous</h1>
