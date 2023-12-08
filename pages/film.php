@@ -1,3 +1,4 @@
+
 <?php
 include '../config.php';
 
@@ -51,7 +52,6 @@ function formatDuration($durationMinutes) {
     return $hours . 'h' . sprintf('%02d', $minutes);
 }
 ?>
-
 
 
 <!DOCTYPE html>
