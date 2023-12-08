@@ -62,22 +62,10 @@ while ($movie = $result->fetch_assoc()) {
 
 
         <!-- Contenu de la deuxième section "Populaires" -->
-        <div class="w-full h-1/2 flex-grow">
-            <h1 class="w-full h-10vh text-white bg-gray-700 text-4xl text-center py-4">Films populaires</h1>
-            <div class="flex justify-around p-8">
-                <?php foreach ($movies as $movie): ?>
-                    <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                        <a href="film.php?id=<?php echo $movie['id_movie']; ?>" class="block w-full h-full bg-cover bg-center relative">
-                            <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                                <span class="text-white text-lg font-bold mb-2"><?php echo $movie['title']; ?></span>
-                                <span class="text-white text-center mx-5"><?php echo $movie['description']; ?></span>
-                            </div>
-                            <img src="<?php echo $movie['image']; ?>" alt="Image" class="w-full h-full object-cover">
-                        </a>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
+        <section>
+            <?php  include_once 'populaires.php'; ?>
+        </section>
+
          <!-- Contenu de la deuxième section "Revoir" -->
         <div class="w-full h-1/2 flex-grow">
             <h1 class="w-full h-10vh text-white bg-gray-700 text-4xl text-center py-4">Revoir</h1>
