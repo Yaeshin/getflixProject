@@ -73,9 +73,9 @@ class Db {
     }
 
     public function register($email, $nickname, $password){
-        $queryNickname = 'SELECT nickname from users WHERE nickname = :nickname';
+        $queryNickname = 'SELECT nickname from users WHERE nickname = ?';
         $psNickname = $this->_conn->prepare($queryNickname);
-        $psNickname->bindValue(':nickname',$nickname);
+        $psNickname->bindValue('?',$nickname);
         $psNickname->execute();
         if($psNickname->rowcount() != 0)
             return 'Nickname already used';

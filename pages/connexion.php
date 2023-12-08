@@ -14,7 +14,7 @@
               <h1 class="text-2xl text-zinc-600 font-bold">Connexion</h1>
             </div>
 
-            <form class="grid place-content-center" action="" method="get">
+            <form class="grid place-content-center" action="" method="post>
               <div class="block ">
                 <label class="block text-slate-700 mb-1 mt-5 text-center" for="email">Email</span>
                 <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" placeholder= "exemple@gmail.com" id="email" name="email"/>
@@ -33,7 +33,7 @@
                 </button>
               </div>
               <div class="text-center mt-3">
-                  <a href="inscription.php">
+                  <a href="index.php?action=register">
                       <p>S'inscrire</p>
                   </a>
               </div>

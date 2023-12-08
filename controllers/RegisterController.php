@@ -1,4 +1,5 @@
 <?php
+
 class RegisterController{
 
     private $_db;
@@ -6,7 +7,6 @@ class RegisterController{
     public function __construct($db){
         $this->_db = $db;
     }
-
 
     public function run(){
         $notification = '';

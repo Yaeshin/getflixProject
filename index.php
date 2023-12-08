@@ -5,21 +5,21 @@
     define('ADMIN', 'a');
     define('MEMBER', 'm');
 
+    require_once('config.php');
+
     function loadClass($className) {
         require_once('models/' . $className . '.class.php');
     }
     spl_autoload_register('loadClass');
 
     session_start();
-
-    $db=Db::getInstance();
+  
+    $db=Db::getInstance($conn);
 
     # default GET
     if (empty($_GET['action']))
         $_GET['action'] = 'home';
 
-    # update the state (ban) of the current user (if he's connected) to prevent him from venturing forever
-    # while the web page is opened
     if (!empty($_SESSION['user']))
         $db->connectUser($_SESSION['user']->email());
 
