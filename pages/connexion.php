@@ -8,7 +8,7 @@
 </head>
 <body class="bg-slate-800 ">
     <div class="flex items-center justify-center min-h-screen h-screen shadow-2xl">
-        <div class="w-1/3 bg-slate-300 p-7 my-10 shadow-2xl border-2  rounded-md border-gray-700 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40 sm:w-1/2 ">
+        <div class="w-1/3 bg-slate-300 p-7 my-10 shadow-2xl border-2  rounded-md border-gray-700 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40 ">
           <div class="max-w-md my-3  opacity-90">
             <div class="flex justify-center max-w-md my-3 opacity-90">
               <h1 class="text-2xl text-zinc-600 font-bold">Connexion</h1>
