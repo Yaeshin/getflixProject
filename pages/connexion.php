@@ -6,24 +6,24 @@
     <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="grid min-h-screen   w-75 h-80 grid place-content-center bg-slate-700 shadow-2xl">
-        <div class="justify-center border-2  rounded-md border-gray-700 p-7 mt-5 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
-          <div class="max-w-md  my-3  opacity-90">
-            <div class="flex justify-center">
+<body class="bg-slate-800 ">
+    <div class="flex items-center justify-center min-h-screen h-screen shadow-2xl">
+        <div class="w-1/3 bg-slate-300 p-7 my-10 shadow-2xl border-2  rounded-md border-gray-700 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40 ">
+          <div class="max-w-md my-3  opacity-90">
+            <div class="flex justify-center max-w-md my-3 opacity-90">
               <h1 class="text-2xl text-zinc-600 font-bold">Connexion</h1>
-            </div>
+            </div> 
 
             <form class="grid place-content-center" action="" method="get">
               <div class="block ">
-                <label class="block text-slate-700 mb-1 mt-5 text-center" for="email">Email</span>
-                <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" placeholder= "exemple@gmail.com" id="email" name="email"/>
+                <label class="block text-slate-700 mb-1 mt-10 text-center" for="email">Email</span>
+                <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" placeholder= "exemple@gmail.com" id="email" name="email" required autocomplete="on"/>
                 <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
                   Please provide a valid email address.
                 </p>
               </div>
               <div class="block ">
-                  <label class="block text-slate-700 mb-1 text-center" for="password">Password</label>
+                  <label class="block text-slate-700 mb-1 mt-8 text-center" for="password">Password</label>
                   <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="password" name="password">
                   
               </div>
@@ -48,4 +48,4 @@
       </div>
     </div>
   </body>
-</html>
+</html> 
