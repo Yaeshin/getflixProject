@@ -38,12 +38,21 @@ include 'sectionPopulaire.php';
         `;
     }
 
+    // Fonction pour vérifier et réinitialiser l'index de début lorsque tous les films ont été affichés
+    function checkResetIndex(carouselId) {
+        const cardContainer = document.getElementById(carouselId);
+        const startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
+        if (startIndex >= movies.length) {
+            cardContainer.dataset.startIndex = 0;
+        }
+    }
+
     // Fonction pour afficher les cartes suivantes pour un carrousel spécifique
     function showNext(carouselId) {
         const cardContainer = document.getElementById(carouselId);
         cardContainer.innerHTML = '';
 
-        const startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
+        let startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
         for (let i = startIndex; i < startIndex + 5 && i < movies.length; i++) {
             const movie = movies[i];
             const card = generateMovieCard(movie);
@@ -51,6 +60,7 @@ include 'sectionPopulaire.php';
         }
 
         cardContainer.dataset.startIndex = startIndex + 5;
+        checkResetIndex(carouselId);
     }
 
     // Fonction pour afficher les cartes précédentes pour un carrousel spécifique
@@ -79,5 +89,6 @@ include 'sectionPopulaire.php';
         showNext('carouselPopulaire');
         showNext('carouselPourVous');
         showNext('carouselRevoir');
+        // Assure-toi d'ajouter également pour les autres carrousels si nécessaire
     });
 </script>
