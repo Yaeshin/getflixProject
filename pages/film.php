@@ -82,7 +82,7 @@ function formatDuration($durationMinutes) {
     <main class="flex-1 flex flex-row block overflow-hidden">
             <div class="w-1/4 h-4/4 flex items-stretch flex-shrink-0">
 
-                <img src="<?php echo $film['image']; ?>" alt="affiche <?php echo $film['title']; ?>" class="object-cover w-full h-9/10 rounded-2xl p-3">
+                <img src="<?php echo $film['image']; ?>" alt="affiche <?php echo $film['title']; ?>" class="object-cover w-full h-9/10 rounded-3xl p-3">
 
             </div>
             <div class="w-3/4 h-4/4 flex flex-col relative m-3 flex-shrink-0">
