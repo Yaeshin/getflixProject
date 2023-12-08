@@ -1,12 +1,15 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7cb5297ed19256b667412a90b14876d260b36952
 <?php
 include '../config.php';
 
-$film_id = 484641; // par exemple
+// Récupérer l'identifiant du film depuis l'URL
+$film_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Requête pour récupérer les informations du film
 $query = "SELECT * FROM movies WHERE id_movie = $film_id";
-
 $result = $conn->query($query);
 
 // Vérifier si la requête a réussi
@@ -32,10 +35,10 @@ while ($comment = $commentResult->fetch_assoc()) {
     // Requête pour récupérer le nickname de l'utilisateur
     $commentUserId = $comment['user'];
     $userQuery = "SELECT nickname FROM users WHERE id_user = $commentUserId";
-    $userResult = mysqli_query($conn, $userQuery);
+    $userResult = $conn->query($userQuery);  // Utiliser $conn->query au lieu de mysqli_query
 
     if ($userResult) {
-        $userRow = mysqli_fetch_assoc($userResult);
+        $userRow = $userResult->fetch_assoc();
         $nickname = $userRow['nickname'];
         $comment['nickname'] = $nickname; // Ajouter le nickname au tableau de commentaire
     }
@@ -54,6 +57,10 @@ function formatDuration($durationMinutes) {
 ?>
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7cb5297ed19256b667412a90b14876d260b36952
 <!DOCTYPE html>
 <html lang="fr">
 
