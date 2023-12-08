@@ -41,7 +41,7 @@
     <!-- Center with logo -->
     <div class="flex items-center justify-center flex-1"> <!-- Utilisation de justify-center pour centrer horizontalement -->
         <div class="flex items-center justify-center h-full">
-            <img src="../img/logo.png" alt="Logo" class="w-10">
+            <a href="menu.php"><img src="../img/logo.png" alt="Logo" class="w-10"></a>
         </div>
     </div>
 
