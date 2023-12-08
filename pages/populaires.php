@@ -1,3 +1,6 @@
+<?php
+include 'sectionPopulaire.php';
+?>
 
 <!-- Contenu de la deuxième section "Populaires" -->
 <div class="w-full h-1/2 flex-grow">
@@ -17,64 +20,64 @@
     </div>
 </div>
 <script>
-        // Initialisation des données de films depuis PHP
-        const movies = <?php echo json_encode($movies); ?>;
+    // Initialisation des données de films depuis PHP
+    const movies = <?php echo json_encode($movies); ?>;
 
-        // Fonction pour générer les cartes de films
-        function generateMovieCard(movie) {
-            return `
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php?id=${movie.id_movie}" class="block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">${movie.title}</span>
-                            <span class="text-white text-center mx-5">${movie.description}</span>
-                        </div>
-                        <img src="${movie.image}" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
-            `;
+    // Fonction pour générer les cartes de films
+    function generateMovieCard(movie) {
+        return `
+            <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                <a href="film.php?id=${movie.id_movie}" class="block w-full h-full bg-cover bg-center relative">
+                    <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                        <span class="text-white text-lg font-bold mb-2">${movie.title}</span>
+                        <span class="text-white text-center mx-5">${movie.description}</span>
+                    </div>
+                    <img src="${movie.image}" alt="Image" class="w-full h-full object-cover">
+                </a>
+            </div>
+        `;
+    }
+
+    // Fonction pour afficher les cartes suivantes pour un carrousel spécifique
+    function showNext(carouselId) {
+        const cardContainer = document.getElementById(carouselId);
+        cardContainer.innerHTML = '';
+
+        const startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
+        for (let i = startIndex; i < startIndex + 5 && i < movies.length; i++) {
+            const movie = movies[i];
+            const card = generateMovieCard(movie);
+            cardContainer.innerHTML += card;
         }
 
-        // Fonction pour afficher les cartes suivantes pour un carrousel spécifique
-        function showNext(carouselId) {
-            const cardContainer = document.getElementById(carouselId);
-            cardContainer.innerHTML = '';
+        cardContainer.dataset.startIndex = startIndex + 5;
+    }
 
-            const startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
-            for (let i = startIndex; i < startIndex + 5 && i < movies.length; i++) {
-                const movie = movies[i];
-                const card = generateMovieCard(movie);
-                cardContainer.innerHTML += card;
-            }
-
-            cardContainer.dataset.startIndex = startIndex + 5;
+    // Fonction pour afficher les cartes précédentes pour un carrousel spécifique
+    function showPrev(carouselId) {
+        const cardContainer = document.getElementById(carouselId);
+        let startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
+        startIndex -= 10;
+        if (startIndex < 0) {
+            startIndex = 0;
         }
+        cardContainer.dataset.startIndex = startIndex;
+        showNext(carouselId);
+    }
 
-        // Fonction pour afficher les cartes précédentes pour un carrousel spécifique
-        function showPrev(carouselId) {
-            const cardContainer = document.getElementById(carouselId);
-            let startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
-            startIndex -= 10;
-            if (startIndex < 0) {
-                startIndex = 0;
-            }
-            cardContainer.dataset.startIndex = startIndex;
-            showNext(carouselId);
-        }
+    // Fonctions pour les boutons Précédent et Suivant
+    function next(carouselId) {
+        showNext(carouselId);
+    }
 
-        // Fonctions pour les boutons Précédent et Suivant
-        function next(carouselId) {
-            showNext(carouselId);
-        }
+    function prev(carouselId) {
+        showPrev(carouselId);
+    }
 
-        function prev(carouselId) {
-            showPrev(carouselId);
-        }
-
-        // Afficher les premières cinq cartes au chargement de la page
-        document.addEventListener('DOMContentLoaded', () => {
-            showNext('carouselPopulaire');
-            showNext('carouselPourVous');
-            showNext('carouselRevoir');
-        });
-    </script>
+    // Afficher les premières cinq cartes au chargement de la page
+    document.addEventListener('DOMContentLoaded', () => {
+        showNext('carouselPopulaire');
+        showNext('carouselPourVous');
+        showNext('carouselRevoir');
+    });
+</script>
