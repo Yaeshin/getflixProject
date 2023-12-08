@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 7cb5297ed19256b667412a90b14876d260b36952
 <?php
 include '../config.php';
 
@@ -57,10 +54,6 @@ function formatDuration($durationMinutes) {
 ?>
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7cb5297ed19256b667412a90b14876d260b36952
 <!DOCTYPE html>
 <html lang="fr">
 
