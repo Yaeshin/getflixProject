@@ -1,8 +1,7 @@
-<header class="h-10vh flex items-center justify-between p-4 bg-gray-800">
+<header class="h-10vh flex flex-row items-center p-4 bg-gray-800">
     <!-- Left side with photo and name -->
     <div class="flex items-center">
-        <img src="../img/test-img2.jpg" alt="img" class="w-12 h-12 object-cover rounded-full">
-        <p class="ml-2 text-white text-lg font-bold">John Doe</p>
+        <a href="pages/connexion.php" class="ml-2 text-white text-lg font-bold">Se Connecter</a>
     </div>
 
     <!-- Center with logo -->
