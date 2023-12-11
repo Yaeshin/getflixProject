@@ -7,7 +7,6 @@ $film_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Requête pour récupérer les informations du film
 $query = "SELECT * FROM movies WHERE id_movie = $film_id";
-
 $result = $conn->query($query);
 
 // Vérifier si la requête a réussi
