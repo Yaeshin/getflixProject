@@ -64,10 +64,10 @@ $endIndex = 4;
             </div>
         </div>
 
-        <!-- Contenu de la deuxième section "Populaires" 
+        <!-- Contenu de la deuxième section "Populaires" -->
         <section>
             <?php  include_once 'populaires.php'; ?>
-        </section>-->
+        </section>
 
         <!-- Contenu de la deuxième section "Revoir" -->
         <div class="w-full h-1/2 flex-grow">
