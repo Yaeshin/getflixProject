@@ -1,5 +1,25 @@
 <?php
-include 'sectionPopulaire.php';
+include '../config.php';
+
+// Requête pour récupérer les informations des films
+$query = "SELECT * FROM populaire";
+$result = $conn->query($query);
+
+// Vérifier si la requête a réussi
+if ($result === false) {
+    die("Erreur de requête : " . $conn->error);
+}
+
+$movies2 = [];
+
+// Récupérer les informations des films
+while ($movie = $result->fetch_assoc()) {
+    $movies2[] = $movie;
+}
+
+// Variables pour suivre l'index de début et de fin des cartes affichées
+$startIndex = 0;
+$endIndex = 4;
 ?>
 
 <!-- Contenu de la deuxième section "Populaires" -->
@@ -11,7 +31,12 @@ include 'sectionPopulaire.php';
             <img src="../img/selectorLeft.png" alt="left" class="w-1/2 h-auto transition-transform hover:scale-125 mx-auto">
         </button>
         <div class="carousel flex" id="carouselPopulaire">
-            <!-- Les cartes de films seront générées ici -->
+            <?php
+            // Utilisez $movies2 pour générer les cartes de films
+            foreach ($movies2 as $movie) {
+                echo generateMovieCard($movie);
+            }
+            ?>
         </div>
         <button onclick="next('carouselPopulaire')" class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white px-3 py-2 rounded-r-lg focus:outline-none flex items-center">
             <!-- Remplacement du texte par des symboles de flèches -->
@@ -20,19 +45,19 @@ include 'sectionPopulaire.php';
     </div>
 </div>
 <script>
-    // Initialisation des données de films depuis PHP
-    const movies = <?php echo json_encode($movies); ?>;
+// Initialisation des données de films depuis PHP
+    const movies = <?php echo json_encode($movies2); ?>;
 
     // Fonction pour générer les cartes de films
     function generateMovieCard(movie) {
         return `
             <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                <a href="film.php?id=${movie.id_movie}" class="block w-full h-full bg-cover bg-center relative">
+                <a href="film.php?id=${movie.id_populaire}" class="block w-full h-full bg-cover bg-center relative">
                     <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                        <span class="text-white text-lg font-bold mb-2">${movie.title}</span>
-                        <span class="text-white text-center mx-5">${movie.description}</span>
+                        <span class="text-white text-lg font-bold mb-2">${movie.title_populaire}</span>
+                        <span class="text-white text-center mx-5">${movie.description_populaire}</span>
                     </div>
-                    <img src="${movie.image}" alt="Image" class="w-full h-full object-cover">
+                    <img src="${movie.image_populaire}" alt="Image" class="w-full h-full object-cover">
                 </a>
             </div>
         `;
@@ -87,8 +112,6 @@ include 'sectionPopulaire.php';
     // Afficher les premières cinq cartes au chargement de la page
     document.addEventListener('DOMContentLoaded', () => {
         showNext('carouselPopulaire');
-        showNext('carouselPourVous');
-        showNext('carouselRevoir');
-        // Assure-toi d'ajouter également pour les autres carrousels si nécessaire
+        // Ajouter également pour les autres carrousels si nécessaire
     });
 </script>
