@@ -16,19 +16,19 @@
     <div class="grid grid-cols-2 grid-rows-2 gap-4 wrap-2 m-8 ps-8 pt-10 content-center">
         <div class="bg-white p-6 m-6 h-[12rem] w-[75%]"> <!-- 3 times the default height (3rem) -->
             <h3 class="text-xl">Membres</h3>
-            <span class=" text-7xl text-center block">13</span>
+            <output class=" text-7xl text-center block">13</output>
         </div>
         <div class="bg-white p-6 m-6 h-[12rem] w-[75%]"> <!-- 3 times the default height (3rem) -->
             <h3 class="text-xl">Films</h3>
-            <span class=" text-7xl text-center block">301</span>
+            <output class=" text-7xl text-center block">301</output>
         </div>
         <div class="bg-white p-6 m-6 h-[12rem] w-[75%]"> <!-- 3 times the default height (3rem) -->
             <h3 class="text-xl">Commentaires</h3>
-            <span class=" text-7xl text-center block">2144</span>
+            <output class=" text-7xl text-center block">2144</output>
         </div>
         <div class="bg-white p-6 m-6 h-[12rem] w-[75%]"> <!-- 3 times the default height (3rem) -->
             <h3 class="text-xl">Contact</h3>
-            <span class=" text-7xl text-center block">2</span>
+            <output class=" text-7xl text-center block">2</output>
         </div>
     </div>
 </div>
