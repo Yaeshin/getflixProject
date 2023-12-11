@@ -27,13 +27,17 @@ class ConnexionController
             case ADMIN :
                 $_SESSION['email'] = $_POST['email'];
                 $_SESSION['role'] = ADMIN;
+                $_SESSION['nickname'] =$_SESSION['user']->html_nickname();
                 header("Location: admin/admin.php");
                 die();
             case MEMBER :
                 $_SESSION['email'] = $_POST['email'];
                 $_SESSION['role'] = MEMBER;
+                $_SESSION['nickname'] =$_SESSION['user']->html_nickname();
                 header("Location: pages/menu.php");
                 die();
+            default:
+                header("Location: auth.php?action=login");
         }
     }
 }

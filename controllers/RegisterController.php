@@ -13,7 +13,7 @@ class RegisterController{
         if(!empty($_POST['register'])){
             $notification = $this->_db->register($_POST['email'],$_POST['username'],$_POST['password']);
             if($notification=="true"){
-                header("Location: /pages/menu.php");
+                header("Location: pages/menu.php");
                 die();
             }
         }

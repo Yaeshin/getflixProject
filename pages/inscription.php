@@ -13,7 +13,7 @@
             <div class="flex justify-center">
               <h1 class="text-2xl text-zinc-600 font-bold">Inscription</h1>
             </div>
-            <form class="grid place-content-center" action="index.php?action=register" method="post">
+            <form class="grid place-content-center" action="auth.php?action=register" method="post">
             <div class="block ">
                 <label class="block text-slate-700 mb-1  mt-5 text-center" for="email_inscription">Email</label>
                 <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" placeholder= "exemple@gmail.com" id="email" name="email" required/>
@@ -43,7 +43,7 @@
               
             </div>
             <div class="mt-1 text-center">
-              <a href="index.php?action=login">
+              <a href="auth.php?action=login">
                     <p>Connexion</p>
               </a>
             </div>
