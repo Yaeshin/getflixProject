@@ -65,7 +65,7 @@ Backend:
 
 Thomas Syben [github](https://github.com/Harbingar)
 
-Célestin Yaeshin [github](https://github.com/Yaeshin)
+Célestin Sivixay [github](https://github.com/Yaeshin)
 
 Cédric Berthet [github](https://github.com/cebe0210)
 
