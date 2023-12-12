@@ -16,7 +16,7 @@
                     <h1 class="text-2xl text-zinc-600 font-bold">Connexion</h1>
                 </div>
                 <!-- Debut du formulaire -->
-                <form class="grid place-content-center" method="get">
+                <form class="grid place-content-center" method="post">
                     <div class="block ">
                         <label class="block text-slate-700 mb-1 mt-10 sm:mt-10 text-center" for="email">Email</label>
                         <input type="email" class="peer mt-1 bg-slate-50 peer appearance-none    w-full py-2 text-gray-700 leading-tight px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-500" placeholder="exemple@gmail.com" id="email" name="email" required autocomplete="on">
@@ -29,12 +29,12 @@
                         <input class="bg-slate-50 peer appearance-none mt-1 bg-slate-50 peer appearance-none    w-full py-2 px-2 text-gray-700 leading-tight px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-500" type="password" placeholder="******************" id="password" name="password">
                     </div>
                     <div class="mt-10 sm:mt-10 flex justify-center">
-                        <button class="bg-sky-500 hover:bg-sky-700 py-1 px-3 text-xl mx-auto mt-10 text-white rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg shadow-blue-500/50" type="submit" valeur="connexion">
+                        <button class="bg-sky-500 hover:bg-sky-700 py-1 px-3 text-xl mx-auto mt-10 text-white rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg shadow-blue-500/50" type="submit" value="Login">
                             Connexion
                         </button>
                     </div>
                     <div class="text-center mt-10 sm:mt-10">
-                        <a href="inscription.php" class="hover:text-blue-500 hover:underline hover:underline-offset-2
+                        <a href="auth.php?action=register" class="hover:text-blue-500 hover:underline hover:underline-offset-2
                                 hover:text-blue-500 hover:font-bold">
                             <p>S'inscrire</p>
                         </a>

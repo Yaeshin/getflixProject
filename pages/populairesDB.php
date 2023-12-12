@@ -131,7 +131,7 @@ if (isset($videoData['results']) && is_array($videoData['results']) && !empty($v
 }
 
 // Fermer la connexion à la base de données
-$this->conn->close();
+//$this->conn->close();
 }
 }
 
