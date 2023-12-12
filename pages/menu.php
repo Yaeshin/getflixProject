@@ -1,13 +1,6 @@
 <?php
 include '../config.php';
-include 'populairesDB.php';
-
-// Instancier la classe PopulairesDB
-$populairesDB = new PopulairesDB($conn);
-
-// Mettre à jour la base de données
-$populairesDB->updateDatabase();
-
+//include_once 'populairesDB.php';
 
 // Requête pour récupérer les informations des films
 $query = "SELECT * FROM movies";
