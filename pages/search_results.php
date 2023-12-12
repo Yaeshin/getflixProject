@@ -2,7 +2,7 @@
 include '../config.php';
 
 // Récupération du terme de recherche depuis le formulaire
-$search_term = mysqli_real_escape_string($conn, $_POST['search_term']);
+$search_term = mysqli_real_escape_string($conn, $_GET['search_term']);
 
 // Requête SQL pour la recherche dans la table 'movies'
 $sql_movies = "SELECT * FROM movies 
