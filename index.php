@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Welcome To Play</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
     <style>
         ::-webkit-scrollbar {
             width: 3px;
@@ -36,7 +37,7 @@
         <div class="w-full h-1/2 flex-grow">
             <div class="flex justify-around p-8">
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" id="popupLink" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="#" class="popupLink block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
                             <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
@@ -45,7 +46,7 @@
                     </a>
                 </div>
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="#" class="popupLink block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
                             <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
@@ -54,7 +55,7 @@
                     </a>
                 </div>
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
                             <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
@@ -63,7 +64,7 @@
                     </a>
                 </div>
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
                             <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
@@ -72,7 +73,7 @@
                     </a>
                 </div>
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
                             <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
@@ -85,7 +86,7 @@
         <div class="w-full h-1/2 flex-grow">
             <div class="flex justify-around p-8">
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
                             <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
@@ -94,7 +95,7 @@
                     </a>
                 </div>
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
                             <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
@@ -103,7 +104,7 @@
                     </a>
                 </div>
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
                             <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
@@ -112,7 +113,7 @@
                     </a>
                 </div>
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
                             <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
@@ -121,7 +122,7 @@
                     </a>
                 </div>
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
                             <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
@@ -134,22 +135,27 @@
     </main>
 
     <script>
-        const link = document.getElementById('popupLink');
+        const links = document.querySelectorAll('.popupLink');
         const overlay = document.getElementById('overlay');
-        const closeButton = document.getElementById('popupButton1');
 
         function openPopup(event) {
             event.preventDefault();
             overlay.classList.remove('hidden');
         }
 
-        link.addEventListener('click', openPopup);
-
         function closePopup() {
             overlay.classList.add('hidden');
         }
 
-        closeButton.addEventListener('click', closePopup);
+        links.forEach(link => {
+            link.addEventListener('click', openPopup);
+        });
+
+        const disconnectButtons = document.querySelectorAll('.popupButton2');
+
+        disconnectButtons.forEach(button => {
+            button.addEventListener('click', closePopup);
+        });
     </script>
 
 

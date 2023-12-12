@@ -28,6 +28,7 @@ $endIndex = 4;
     <meta charset="UTF-8">
     <title>Welcome To Play</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="../img/logo.png" type="image/x-icon">
     <style>
         ::-webkit-scrollbar {
             width: 3px;
@@ -105,14 +106,38 @@ $endIndex = 4;
                 </div>
             `;
         }
+        // Fonction pour afficher les premières cartes pour un carrousel spécifique
+        function showInitialCards(carouselId) {
+            const cardContainer = document.getElementById(carouselId);
+            cardContainer.innerHTML = '';
 
+            for (let i = 0; i < 5 && i < movies.length; i++) {
+                const movie = movies[i];
+                const card = generateMovieCard(movie);
+                cardContainer.innerHTML += card;
+            }
+
+            cardContainer.dataset.startIndex = 5; // Mettre à jour l'index de départ
+        }
+
+        // Appeler la fonction pour afficher les premières cartes au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            showInitialCards('carouselPourVous');
+            showInitialCards('carouselRevoir');
+        });
         // Fonction pour afficher les cartes suivantes pour un carrousel spécifique
         function showNext(carouselId) {
             const cardContainer = document.getElementById(carouselId);
             cardContainer.innerHTML = '';
 
-            const startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
-            for (let i = startIndex; i < startIndex + 5 && i < movies.length; i++) {
+            let startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
+            const totalMovies = movies.length;
+
+            if (startIndex >= totalMovies) {
+                startIndex = 0;
+            }
+
+            for (let i = startIndex; i < startIndex + 5 && i < totalMovies; i++) {
                 const movie = movies[i];
                 const card = generateMovieCard(movie);
                 cardContainer.innerHTML += card;
@@ -141,6 +166,8 @@ $endIndex = 4;
         function prev(carouselId) {
             showPrev(carouselId);
         }
+            // Fonction pour afficher les premières cartes pour un carrousel spécifique
+
     </script>
 </body>
 

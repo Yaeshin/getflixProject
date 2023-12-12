@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Recherche</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="../img/logo.png" type="image/x-icon">
     <style>
         ::-webkit-scrollbar {
             width: 3px;
