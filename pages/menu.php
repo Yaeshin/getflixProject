@@ -1,5 +1,6 @@
 <?php
 include '../config.php';
+//include_once 'populairesDB.php';
 
 // Requête pour récupérer les informations des films
 $query = "SELECT * FROM movies";
