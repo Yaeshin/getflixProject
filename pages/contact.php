@@ -8,9 +8,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-slate-700 grid place-content-center">
+<body>
 
-  <div class="bg-slate-300  w-full max-w-sm grid h-full   w-75 h-80  rounded  mt-10 pb-8 flex -end">
+<div class="flex items-center h-screen justify-center bg-gray-800 shadow-2xl bg-gray-800">
+  <div class="mx-auto w-2/3 md:w-4/6 lg:w-5/12 flex justify-center items-center border-2 rounded-md border-gray-700 py-7 mt-5 bg-gray-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40 mx-auto">
     <div class="pl-14 pr-14 mt-8 mx-auto ">
       <h1 class="text-4xl text-gray-800 sm:text-4xl font-bold mb-4 text-center">Contact</h1>
       <form>
@@ -65,7 +66,7 @@
           <div class="p-2 w-full">
             <div class="relative text-center">
               <label for="message" class="leading-7 py-4 text-lg text-gray-900 ">Message</label>
-              <textarea id="message" name="message" required="" class=" w-full bg-white rounded border border-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-900 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+              <textarea id="message" name="message" required="" rows="8" class=" w-full bg-white rounded border border-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-900 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out  h-full min-h-[100px]"></textarea>
             </div>
           </div>
           <div class="p-2 w-full">
@@ -78,10 +79,8 @@
       </form>
     </div>
   </div>
-  <script>
-
-
-  </script>
+  
+  </div>
 </body>
 
 </html>
