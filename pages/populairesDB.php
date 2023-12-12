@@ -1,6 +1,14 @@
 <?php
 include '../config.php';
 
+class PopulairesDB {
+    private $conn;
+
+    public function __construct($conn) {
+        $this->conn = $conn;
+    }
+
+    public function updateDatabase() {
 // Récupérer la liste des films populaires depuis l'API
 $popularMoviesApiUrl = "https://api.themoviedb.org/3/movie/popular";
 $params = ['api_key' => $api_key];
@@ -100,4 +108,7 @@ if (isset($videoData['results']) && is_array($videoData['results']) && !empty($v
 
 // Fermer la connexion à la base de données
 $conn->close();
+$this->conn->close();
+}
+}
 ?>
