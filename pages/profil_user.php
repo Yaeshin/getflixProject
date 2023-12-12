@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
+    <title>Profil User</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -14,17 +14,29 @@
                         <div class="row-span-3 mx-10 "> 
                             <p>Profil</p>
                             <div class="flex items-center justify-center w-full">
-                                <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                    
-                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                        <img class="object-cover h-40 w-40 bg-white" src="./../img/profile.png" type="file">
+                            <div class="  flex-col  pt-5 pb-6 flex flex-col w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50 relative">
+                                <div class="grid grid-rows-6">
+                                    <div class="row-span-5">
+                                    <img class="object-cover h-4/5 w-auto bg-gray-300 absolute top-2 left-2 right-2 rounded shadow-lg " src="./../img/profile.png">
                                     </div>
-                                    <input id="dropzone-file" type="file" class="hidden" />
-                                </label>
+                                
+                                
+                                       <div class=" block row-span-1 row-start-6">
+                            
+                                        <label for="file-upload" class="absolute h-2 w-auto bottom-4  left-2 my-2   cursor-pointer bg-white font-medium text-black-600 focus-within:outline-none focus-within:ring-offset-2 focus-within:ring-indigo-500 ">
+                      <span class="bg-gray-300 rounded tracking-wide px-12 shadow-lg hover:bg-gray-500 hover:text-white">Upload  image</span>
+                      <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                    </label>
+                    
+                                                                                    </div>
+                                                                    </div>          
+
+                                    </div>
+                                    
                             </div> 
                             <div class="block  mt-5 gap">
                                 <label class="block text-black mb-1 " for="pseudo_inscription">Pseudo</label>
-                                <input type="text" class="peer bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="pseudo_inscription" name="pseudo_inscription"/>
+                                <input type="text" class="peer bg-slate-50 peer  appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="pseudo_inscription" name="pseudo_inscription"/>
                             </div>
                         </div>
                         <div class="row-span-4 col-span-2 grid grid-cols-1 gap-2">
@@ -54,7 +66,5 @@
             </div>
         </div>
     
-        
-
 </body>
 </html>
