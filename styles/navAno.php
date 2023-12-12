@@ -1,7 +1,7 @@
 <header class="h-10vh flex flex-row items-center p-4 bg-gray-800">
     <!-- Left side with photo and name -->
     <div class="flex items-center">
-        <a href="pages/connexion.php" class="ml-2 text-white text-lg font-bold">Se Connecter</a>
+        <a href="auth.php?action=login" class="ml-2 text-white text-lg font-bold">Se Connecter</a>
     </div>
 
     <!-- Center with logo -->
