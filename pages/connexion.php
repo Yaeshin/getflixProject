@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Connexion</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
     <div class="flex items-center justify-center h-screen bg-gray-800">
-        <div class="w-11/12 md:w-4/6 lg:w-1/3 bg-gray-300 p-2 my-10 mx-auto shadow-2xl border-2 rounded-md bg-gray-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
+        <div class=" lg:w-1/3 w-2/3 md:w-4/6 bg-gray-300 p-2 my-10 mx-auto shadow-2xl border-2 rounded-md bg-gray-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
             <div class="max-w-md my-3 opacity-90 mx-auto">
                 <div class="flex justify-center max-w-md my-3 opacity-90">
                     <h1 class="text-2xl text-zinc-600 font-bold">Connexion</h1>
@@ -19,7 +19,7 @@
                 <form class="grid place-content-center" method="get">
                     <div class="block ">
                         <label class="block text-slate-700 mb-1 mt-10 sm:mt-10 text-center" for="email">Email</label>
-                        <input type="email" class="peer mt-1 bg-slate-50 peer appearance-none    w-full py-2 px-2 text-gray-700 leading-tight px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-500" placeholder="exemple@gmail.com" id="email" name="email" required autocomplete="on">
+                        <input type="email" class="peer mt-1 bg-slate-50 peer appearance-none    w-full py-2 text-gray-700 leading-tight px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-500" placeholder="exemple@gmail.com" id="email" name="email" required autocomplete="on">
                         <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
                             Please provide a valid email address.
                         </p>
@@ -34,13 +34,13 @@
                         </button>
                     </div>
                     <div class="text-center mt-10 sm:mt-10">
-                        <a href="inscription.php" class="hover:text-blue-500 hover:underline
+                        <a href="inscription.php" class="hover:text-blue-500 hover:underline hover:underline-offset-2
                                 hover:text-blue-500 hover:font-bold">
                             <p>S'inscrire</p>
                         </a>
                     </div>
                     <div class="mt-8 text-center">
-                        <a href="" class="hover:text-blue-500 hover:underline hover:text-blue-500 hover:font-bold">
+                        <a href="" class="hover:text-blue-500 hover:underline hover:underline-offset-2 hover:text-blue-500 hover:font-bold">
                             <p>Mot de passe oublié ?</p>
                         </a>
                     </div>
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-    </div>
+
 </body>
 
 </html>
