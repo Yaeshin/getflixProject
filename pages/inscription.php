@@ -7,8 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="grid min-h-screen h-80 grid place-content-center bg-slate-700 shadow-2xl">
-        <div class="justify-center border-2  rounded-md border-gray-700 p-7 mt-5 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
+<div class="grid min-h-screen h-80 grid place-content-center bg-slate-700 shadow-2xl">
+    <div class="justify-center border-2  rounded-md border-gray-700 p-7 mt-5 bg-slate-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
           <div class="max-w-md  my-3  opacity-90 mx-10">
             <div class="flex justify-center">
               <h1 class="text-2xl text-zinc-600 font-bold">Inscription</h1>
@@ -23,16 +23,16 @@
               </div>
           <div class="block ">
               <label class="block text-slate-700 mb-1 text-center" for="pseudo_inscription">Pseudo</label>
-              <input type="text" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" placeholder= "Joe" id="username" name="username" required/>
+              <input type="text" class="peer mt-1 bg-slate-50 peer appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" placeholder= "Joe" id="username" name="username" required/>
             </div>
             <div class="block ">
               <label class="block text-slate-700 mb-1 text-center" for="password_inscription">Password</label>
-              <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" type="password" placeholder="******************" id="password" name="password" required>
+              <input class="bg-slate-50 peer appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" type="password" placeholder="******************" id="password" name="password" required>
               
             </div>
             <div class="block ">
               <label class="block text-slate-700 mb-1 text-center mt-3"> Confirmation Password</label>
-              <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="pwConfirm" type="password" placeholder="******************" name="pwConfirm" required>
+              <input class="bg-slate-50 peer appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="pwConfirm" type="password" placeholder="******************" name="pwConfirm" required>
               
             </div>
               <div class="mt-5 flex justify-center">
