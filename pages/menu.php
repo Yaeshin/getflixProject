@@ -2,6 +2,12 @@
 include '../config.php';
 include_once 'populairesDB.php';
 
+session_start();
+if (empty($_SESSION['user'])) {
+    header("Location: ../index.php");
+    die();
+}
+
 // Requête pour récupérer les informations des films
 $query = "SELECT * FROM movies";
 $result = $conn->query($query);

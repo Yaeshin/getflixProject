@@ -1,6 +1,16 @@
 <?php 
 include '../config.php';
 
+session_start();
+if (empty($_SESSION['user'])) {
+    header("Location: ../index.php");
+    die();
+}
+if ($_SESSION['role'] == 'm') {
+    header("Location: ../pages/menu.php");
+    die();
+}
+
 
 // Initialisation des variables avec des valeurs par défaut
 $filmName = '';

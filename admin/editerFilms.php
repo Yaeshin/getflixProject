@@ -1,6 +1,16 @@
 <?php
 include '../config.php';
 
+session_start();
+if (empty($_SESSION['user'])) {
+    header("Location: ../index.php");
+    die();
+}
+if ($_SESSION['role'] == 'm') {
+    header("Location: ../pages/menu.php");
+    die();
+}
+
 // Vérifier si un ID est passé dans l'URL
 if (isset($_GET['id_movie'])) {
     $id_movie = $_GET['id_movie'];

@@ -1,6 +1,12 @@
 <?php
 include '../config.php';
 
+session_start();
+if (empty($_SESSION['user'])) {
+    header("Location: ../index.php");
+    die();
+}
+
 // Vérifier si l'ID du film est présent dans l'URL
 if (isset($_GET['id'])) {
     $idfilm = $_GET['id'];
