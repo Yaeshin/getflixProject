@@ -37,7 +37,7 @@ while ($comment = $commentResult->fetch_assoc()) {
     // Requête pour récupérer le nickname de l'utilisateur
     $commentUserId = $comment['user'];
     $userQuery = "SELECT nickname FROM users WHERE id_user = $commentUserId";
-    $userResult = $conn->query($userQuery);  // Utiliser $conn->query au lieu de mysqli_query
+    $userResult = $conn->query($userQuery);
 
     if ($userResult) {
         $userRow = $userResult->fetch_assoc();
@@ -46,28 +46,56 @@ while ($comment = $commentResult->fetch_assoc()) {
     }
 
     $comments[] = $comment;
+}
 
-}// ajout de commentaire
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $comment_content = isset($_POST['comment_content']) ? htmlspecialchars($_POST['comment_content']) : '';
+// Récupérer le nickname de la session
+$nickname = isset($_SESSION['nickname']) ? $_SESSION['nickname'] : '';
 
-    if (!empty($comment_content)) {
-        $user_id = 1; // Remplacez cela par la méthode appropriée pour obtenir l'ID de l'utilisateur actuel
+// Assurez-vous que le nickname est défini
+if (!empty($nickname)) {
+    // Échapper le nickname pour éviter les injections SQL
+    $escapedNickname = $conn->real_escape_string($nickname);
 
-        // Requête pour insérer le commentaire dans la base de données
-        $insert_comment_query = "INSERT INTO comments (user, movie, content) VALUES ('$user_id', '$film_id', '$comment_content')";
-        $insert_result = $conn->query($insert_comment_query);
+    // Requête pour récupérer l'ID de l'utilisateur en fonction du nickname
+    $userQuery = "SELECT id_user FROM users WHERE nickname = '$escapedNickname'";
 
-        if ($insert_result === false) {
-            die("Erreur lors de l'ajout du commentaire : " . $conn->error);
-        } else {
-            // Commentaire ajouté avec succès, rediriger avec un message de succès
-            session_start();
-            $_SESSION['success_message'] = "Le commentaire a été ajouté avec succès.";
-            header("Location: $_SERVER[REQUEST_URI]");
-            exit();
+    // Exécutez la requête
+    $userResult = $conn->query($userQuery);
+
+    // Vérifiez si la requête s'est bien déroulée
+    if ($userResult === false) {
+        die("Erreur de requête pour récupérer l'ID de l'utilisateur : " . $conn->error);
+    }
+
+    // Récupérez l'ID de l'utilisateur à partir du résultat de la requête
+    $userRow = $userResult->fetch_assoc();
+    $user_id = $userRow['id_user'];
+
+    // Libérez les résultats de la requête
+    $userResult->free();
+
+    // Ajout de commentaire
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $comment_content = isset($_POST['comment_content']) ? htmlspecialchars($_POST['comment_content']) : '';
+
+        if (!empty($comment_content)) {
+            // Requête pour insérer le commentaire dans la base de données
+            $insert_comment_query = "INSERT INTO comments (user, movie, content) VALUES ('$user_id', '$film_id', '$comment_content')";
+            $insert_result = $conn->query($insert_comment_query);
+
+            if ($insert_result === false) {
+                die("Erreur lors de l'ajout du commentaire : " . $conn->error);
+            } else {
+                // Commentaire ajouté avec succès, rediriger avec un message de succès
+                $_SESSION['success_message'] = "Le commentaire a été ajouté avec succès.";
+                header("Location: $_SERVER[REQUEST_URI]");
+                exit();
+            }
         }
     }
+} else {
+    // Gérez le cas où le nickname n'est pas défini dans la session
+    echo "Nickname non défini dans la session.";
 }
 
 
@@ -174,7 +202,17 @@ function formatDuration($durationMinutes) {
               </div>
          </div>
     </main>
+<script>
+// Sélectionnez l'élément du message de succès
+var successMessage = document.getElementById('successMessage');
 
+// Masquez ou supprimez le message après 5 secondes (5000 millisecondes)
+if (successMessage) {
+    setTimeout(function () {
+        successMessage.style.display = 'none'; // Masquer le message
+    }, 3000);
+}
+</script>
 </body>
 
 </html>
