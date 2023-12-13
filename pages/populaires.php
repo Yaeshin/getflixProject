@@ -77,8 +77,6 @@ while ($moviePopulaire = $resultPopulaire->fetch_assoc()) {
         startIndexPopular = (startIndexPopular + 5) % totalMovies; // Mettre à jour l'index de départ pour le prochain lot de films
         cardContainer.dataset.startIndexPopular = startIndexPopular;
     }
-
-
     // Fonction pour afficher les cartes précédentes pour un carrousel spécifique
     function showPrevPopulaire(carouselId) {
         const cardContainer = document.getElementById(carouselId);
@@ -90,12 +88,10 @@ while ($moviePopulaire = $resultPopulaire->fetch_assoc()) {
         cardContainer.dataset.startIndexPopular = startIndexPopular;
         showNextPopulaire(carouselId);
     }
-
     // Fonctions pour les boutons Précédent et Suivant
     function nextPopulaire(carouselId) {
         showNextPopulaire(carouselId);
     }
-
     function prevPopulaire(carouselId) {
         showPrevPopulaire(carouselId);
     }

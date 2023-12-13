@@ -119,7 +119,6 @@ $endIndex = 4;
 
             cardContainer.dataset.startIndex = 5; // Mettre à jour l'index de départ
         }
-
         // Appeler la fonction pour afficher les premières cartes au chargement de la page
         document.addEventListener('DOMContentLoaded', function() {
             showInitialCards('carouselPourVous');
@@ -166,8 +165,6 @@ $endIndex = 4;
         function prev(carouselId) {
             showPrev(carouselId);
         }
-            // Fonction pour afficher les premières cartes pour un carrousel spécifique
-
     </script>
 </body>
 
