@@ -1,6 +1,6 @@
 <?php
 include '../config.php';
-//include 'update_comment.php';
+
 
 $query = "SELECT comments.*, users.nickname, movies.title
           FROM comments
@@ -57,7 +57,12 @@ while ($row = $result->fetch_assoc()) {
                             <td class="px-8 py-4 text-center"><?= $comment['title'] ?></td>
                             <td class="px-8 py-4 text-center"><?= $comment['content'] ?></td>
                             <td class="px-4 py-2 text-center">
-                                <a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a>
+                                <td>
+                                    <form action="delete_comment.php" method="post">
+                                    <?//php var_dump($comment['id_comment']); ?>
+                                    <input type="hidden" name="commentId" value="<?=  $comment['id_comment'] ?>">
+                                    <button type="submit" class="action-link text-white bg-red-500 rounded-lg p-2" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?')">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>

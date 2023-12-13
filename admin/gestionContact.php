@@ -2,8 +2,10 @@
 include '../config.php';
 
 // Utilisez la connexion mysqli au lieu de PDO
-$query = "SELECT * FROM contact";
+$query = "SELECT * FROM contact
+WHERE contact.archive = 1";
 $result = $conn->query($query);
+
 
 // Vérifiez si la requête a réussi
 if ($result === false) {
@@ -42,15 +44,22 @@ while ($row = $result->fetch_assoc()) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($contacts as $cont): ?>
-                        <tr class="pb-5">
-                            <td class="px-8 py-4 text-center"><?= $cont['name'] ?></td>
-                            <td class="px-8 py-4 text-center"><?= $cont['email'] ?></td>
-                            <td class="px-8 py-4 text-center"><?= $cont['message'] ?></td>
-                            <td class="px-8 py-4 text-center"><?= $cont['topic'] ?></td>
-                            <td class="px-4 py-2 text-center"><a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Archiver</a></td>
-                        </tr>
-                    <?php endforeach; ?>
+                <?php foreach ($contacts as $cont): ?>
+                    <tr class="pb-5">
+                        <td class="px-8 py-4 text-center"><?= $cont['name'] ?></td>
+                        <td class="px-8 py-4 text-center"><?= $cont['email'] ?></td>
+                        <td class="px-8 py-4 text-center"><?= $cont['message'] ?></td>
+                        <td class="px-8 py-4 text-center"><?= $cont['topic'] ?></td>
+                        <td class="px-4 py-2 text-center">
+                            <form action="delete_contact.php" method="post">
+                                <input type="hidden" name="contactId" value="<?= $cont['id_contact'] ?>">
+                                <button type="submit" class="action-link text-white bg-red-500 rounded-lg p-2" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce message ?')">Archiver</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+
+                  
                 </tbody>
             </table>
         </div>

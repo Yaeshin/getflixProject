@@ -2,7 +2,8 @@
 include '../config.php';
 
 // Utilisez la connexion mysqli au lieu de PDO
-$query = "SELECT * FROM users";
+$query = "SELECT * FROM users
+WHERE users.is_disabled = 0";
 $result = $conn->query($query);
 
 // Vérifiez si la requête a réussi
@@ -42,15 +43,18 @@ while ($row = $result->fetch_assoc()) {
             </thead>
             <tbody>
                 
-                <?php foreach ($users as $user): ?>
-                        <tr class="pb-5">
-                            <td class="px-8 py-4 text-center"><?= $user['nickname'] ?></td>
-                            <td class="px-8 py-4 text-center"><?= $user['email'] ?></td>
-                            <td class="px-4 py-2 text-center">
-                                <a href="#" class="action-link text-white bg-red-500 rounded-lg p-2">Delete</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+            <?php foreach ($users as $user): ?>
+    <tr class="pb-5">
+        <td class="px-8 py-4 text-center"><?= $user['nickname'] ?></td>
+        <td class="px-8 py-4 text-center"><?= $user['email'] ?></td>
+        <td class="px-4 py-2 text-center">
+            <form action="delete_user.php" method="post">
+                <input type="hidden" name="userId" value="<?= $user['id_user'] ?>">
+                <button type="submit" class="action-link text-white bg-red-500 rounded-lg p-2" onclick="return confirm('Êtes-vous sûr de vouloir désactiver cet utilisateur ?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+<?php endforeach; ?>
             </tbody>
         </table>
     </div>
