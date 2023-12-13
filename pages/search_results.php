@@ -74,7 +74,7 @@ $displayed_movies = [];
                         }
                     }
                 } else {
-                    echo "Aucun résultat trouvé dans la table 'movies'.<br>";
+                    echo "Aucun résultat trouvé.<br>";
                 }
 
                 // Affichage des résultats de la table 'populaire'
@@ -97,7 +97,7 @@ $displayed_movies = [];
                         }
                     }
                 } else {
-                    echo "Aucun résultat trouvé dans la table 'populaire'.<br>";
+                    //echo "Aucun résultat trouvé dans la table 'populaire'.<br>";
                 }
                 ?>
 
