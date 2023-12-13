@@ -1,8 +1,9 @@
-
 <?php
 include '../config.php';
 
+// Démarrer la session une seule fois
 session_start();
+
 if (empty($_SESSION['user'])) {
     header("Location: ../index.php");
     die();
@@ -38,7 +39,7 @@ while ($comment = $commentResult->fetch_assoc()) {
     // Requête pour récupérer le nickname de l'utilisateur
     $commentUserId = $comment['user'];
     $userQuery = "SELECT nickname FROM users WHERE id_user = $commentUserId";
-    $userResult = $conn->query($userQuery);  // Utiliser $conn->query au lieu de mysqli_query
+    $userResult = $conn->query($userQuery);
 
     if ($userResult) {
         $userRow = $userResult->fetch_assoc();
@@ -48,29 +49,58 @@ while ($comment = $commentResult->fetch_assoc()) {
 
     $comments[] = $comment;
 }
-// ajout de commentaire
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $comment_content = isset($_POST['comment_content']) ? htmlspecialchars($_POST['comment_content']) : '';
 
-    if (!empty($comment_content)) {
-        $user_id = 1; // Remplacez cela par la méthode appropriée pour obtenir l'ID de l'utilisateur actuel
+// Récupérer le nickname de la session
+$nickname = isset($_SESSION['nickname']) ? $_SESSION['nickname'] : '';
 
-        // Requête pour insérer le commentaire dans la base de données
-        $insert_comment_query = "INSERT INTO comments (user, movie, content) VALUES ('$user_id', '$film_id', '$comment_content')";
-        $insert_result = $conn->query($insert_comment_query);
+// Assurez-vous que le nickname est défini
+if (!empty($nickname)) {
+    // Échapper le nickname pour éviter les injections SQL
+    $escapedNickname = $conn->real_escape_string($nickname);
 
-        if ($insert_result === false) {
-            die("Erreur lors de l'ajout du commentaire : " . $conn->error);
-        } else {
-            // Commentaire ajouté avec succès, rediriger avec un message de succès
-            session_start();
-            $_SESSION['success_message'] = "Le commentaire a été ajouté avec succès.";
-            header("Location: $_SERVER[REQUEST_URI]");
-            exit();
+    // Requête pour récupérer l'ID de l'utilisateur en fonction du nickname
+    $userQuery = "SELECT id_user FROM users WHERE nickname = '$escapedNickname'";
+
+    // Exécutez la requête
+    $userResult = $conn->query($userQuery);
+
+    // Vérifiez si la requête s'est bien déroulée
+    if ($userResult === false) {
+        die("Erreur de requête pour récupérer l'ID de l'utilisateur : " . $conn->error);
+    }
+
+    // Récupérez l'ID de l'utilisateur à partir du résultat de la requête
+    $userRow = $userResult->fetch_assoc();
+    $user_id = $userRow['id_user'];
+
+    // Libérez les résultats de la requête
+    $userResult->free();
+
+    // Ajout de commentaire
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $comment_content = isset($_POST['comment_content']) ? htmlspecialchars($_POST['comment_content']) : '';
+
+        if (!empty($comment_content)) {
+            // Requête pour insérer le commentaire dans la base de données
+            $insert_comment_query = "INSERT INTO comments (user, movie, content) VALUES ('$user_id', '$film_id', '$comment_content')";
+            $insert_result = $conn->query($insert_comment_query);
+
+            if ($insert_result === false) {
+                die("Erreur lors de l'ajout du commentaire : " . $conn->error);
+            } else {
+                // Commentaire ajouté avec succès, rediriger avec un message de succès
+                $_SESSION['success_message'] = "Le commentaire a été ajouté avec succès.";
+                header("Location: $_SERVER[REQUEST_URI]");
+                exit();
+            }
         }
     }
+} else {
+    // Gérez le cas où le nickname n'est pas défini dans la session
+    echo "Nickname non défini dans la session.";
 }
 
+// Fermer la connexion à la base de données
 $conn->close();
 
 function formatDuration($durationMinutes) {
@@ -157,12 +187,15 @@ function formatDuration($durationMinutes) {
                 </div>
                 <div class="h-1/3 overflow-y-auto mr-4 custom-scroll">
 
+
+                <div id="successMessage" class="success-message">
                 <?php
                 if (isset($_SESSION['success_message'])) {
                     echo '<div class="bg-green-500 text-white p-3 mb-3 rounded">' . $_SESSION['success_message'] . '</div>';
                     unset($_SESSION['success_message']); 
                 }
                 ?>
+                </div>
 
                 <?php foreach ($comments as $comment): ?>
                     <div class="flex flex-col bg-gray-800 rounded-2xl px-2 py-1 my-2 mx-1">
@@ -175,7 +208,17 @@ function formatDuration($durationMinutes) {
               </div>
          </div>
     </main>
+    <script>
+// Sélectionnez l'élément du message de succès
+var successMessage = document.getElementById('successMessage');
 
+// Masquez ou supprimez le message après 5 secondes (5000 millisecondes)
+if (successMessage) {
+    setTimeout(function () {
+        successMessage.style.display = 'none'; // Masquer le message
+    }, 3000);
+}
+</script>
 </body>
 
 </html>
