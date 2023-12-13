@@ -47,7 +47,7 @@
 
     <!-- Right side with search bar -->
     <div class="flex items-center">
-        <form action="search_results.php" method="post">
+        <form action="search_results.php" method="GET">
             <input type="text" name="search_term" placeholder="Search..." class="px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-500">
             <button class="ml-2 px-3 py-1 bg-blue-500 text-white rounded">Search</button>
         </form>
