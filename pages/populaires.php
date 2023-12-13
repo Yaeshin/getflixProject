@@ -32,7 +32,7 @@ while ($moviePopulaire = $resultPopulaire->fetch_assoc()) {
                 $moviePopulaire = $moviesPopulaire[$i];
                 echo "
                 <div class='w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105'>
-                    <a href='film.php?id={$moviePopulaire['id_populaire']}' class='block w-full h-full bg-cover bg-center relative'>
+                    <a href='filmPopulaire.php?id={$moviePopulaire['id_populaire']}' class='block w-full h-full bg-cover bg-center relative'>
                         <div class='absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center'>
                             <span class='text-white text-lg font-bold mb-2'>{$moviePopulaire['title_populaire']}</span>
                             <span class='text-white text-center mx-5'>{$moviePopulaire['description_populaire']}</span>
@@ -63,7 +63,7 @@ while ($moviePopulaire = $resultPopulaire->fetch_assoc()) {
             const movie = <?= json_encode($moviesPopulaire) ?>[movieIndex];
             const card = `
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php?id=${movie.id_populaire}" class="block w-full h-full bg-cover bg-center relative">
+                    <a href="filmPopulaire.php?id=${movie.id_populaire}" class="block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
                             <span class="text-white text-lg font-bold mb-2">${movie.title_populaire}</span>
                             <span class="text-white text-center mx-5">${movie.description_populaire}</span>
