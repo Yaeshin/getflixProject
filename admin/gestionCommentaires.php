@@ -1,6 +1,16 @@
 <?php
 include '../config.php';
 
+session_start();
+if (empty($_SESSION['user'])) {
+    header("Location: ../index.php");
+    die();
+}
+if ($_SESSION['role'] == 'm') {
+    header("Location: ../pages/menu.php");
+    die();
+}
+
 
 $query = "SELECT comments.*, users.nickname, movies.title
           FROM comments

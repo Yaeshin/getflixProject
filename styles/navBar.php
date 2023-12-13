@@ -30,7 +30,6 @@
         <input type="text" placeholder="Rechercher..." class="px-4 rounded-full focus:outline-none">
     </div>
     </div> -->
-    <?php session_start()?>
     <header class="h-10vh flex items-center justify-between p-4 bg-gray-800">
     <!-- Left side with photo and name -->
     <div class="flex items-center">

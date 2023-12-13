@@ -1,3 +1,12 @@
+<?php session_start();
+if (empty($_SESSION['user'])) {
+    header("Location: ../index.php");
+    die();
+}
+if ($_SESSION['role'] == 'm') {
+    header("Location: menu.php");
+    die();
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
