@@ -1,3 +1,19 @@
+<?php
+include 'config.php';
+
+// Requête pour récupérer 10 films aléatoires
+$randomMoviesQuery = "SELECT * FROM movies ORDER BY RAND() LIMIT 10";
+$randomMoviesResult = $conn->query($randomMoviesQuery);
+
+// Vérifier si la requête a réussi
+if ($randomMoviesResult === false) {
+    die("Erreur de requête pour les films aléatoires : " . $conn->error);
+}
+
+// Récupérer les films aléatoires
+$randomMovies = $randomMoviesResult->fetch_all(MYSQLI_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -36,102 +52,20 @@
     <main class="flex-1 flex flex-grow flex-col block">
         <div class="w-full h-1/2 flex-grow">
             <div class="flex justify-around p-8">
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="#" class="popupLink block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
-                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
-                        </div>
-                        <img src="../img/test-img1.jpg" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="#" class="popupLink block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
-                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
-                        </div>
-                        <img src="../img/test-img2.jpg" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
-                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
-                        </div>
-                        <img src="../img/test-img3.jpg" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
-                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
-                        </div>
-                        <img src="../img/test-img4.jpg" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
-                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
-                        </div>
-                        <img src="../img/test-img1.jpg" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
+                <?php foreach ($randomMovies as $movie): ?>
+                    <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                        <a href="film.php?id=<?php echo $movie['id_movie']; ?>" class="popupLink block w-full h-full bg-cover bg-center relative">
+                            <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
+                                <span class="text-white text-lg font-bold mb-2"><?php echo $movie['title']; ?></span>
+                                <span class="text-white text-center mx-5"><?php echo $movie['description']; ?></span>
+                            </div>
+                            <img src="<?php echo $movie['image']; ?>" alt="<?php echo $movie['title']; ?>" class="w-full h-full object-cover">
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-        <div class="w-full h-1/2 flex-grow">
-            <div class="flex justify-around p-8">
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
-                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
-                        </div>
-                        <img src="../img/test-img1.jpg" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
-                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
-                        </div>
-                        <img src="../img/test-img3.jpg" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
-                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
-                        </div>
-                        <img src="../img/test-img2.jpg" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
-                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
-                        </div>
-                        <img src="../img/test-img1.jpg" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
-                <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                    <a href="film.php" class="popupLink block w-full h-full bg-cover bg-center relative">
-                        <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                            <span class="text-white text-lg font-bold mb-2">TITRE DU FILM</span>
-                            <span class="text-white text-center mx-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat rem, unde ea illum, adipisci nulla cum maxime officia blanditiis rerum nesciunt? Excepturi natus asperiores recusandae nostrum magni voluptate dolorum exercitationem?</span>
-                        </div>
-                        <img src="../img/test-img4.jpg" alt="Image" class="w-full h-full object-cover">
-                    </a>
-                </div>
-            </div>
-        </div>
+        <!-- ... -->
     </main>
 
     <script>
