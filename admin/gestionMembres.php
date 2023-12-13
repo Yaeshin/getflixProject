@@ -1,6 +1,16 @@
 <?php
 include '../config.php';
 
+session_start();
+if (empty($_SESSION['user'])) {
+    header("Location: ../index.php");
+    die();
+}
+if ($_SESSION['role'] == 'm') {
+    header("Location: ../pages/menu.php");
+    die();
+}
+
 // Utilisez la connexion mysqli au lieu de PDO
 $query = "SELECT * FROM users
 WHERE users.is_disabled = 0";

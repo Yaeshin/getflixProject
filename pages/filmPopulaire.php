@@ -1,6 +1,12 @@
 <?php
 include '../config.php';
 
+session_start();
+if (empty($_SESSION['user'])) {
+    header("Location: ../index.php");
+    die();
+}
+
 // Récupérer l'identifiant du film depuis l'URL
 $film_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 

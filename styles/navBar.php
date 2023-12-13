@@ -1,15 +1,15 @@
-<?php session_start()?>
+
 <header class="h-10vh flex items-center justify-between p-4 bg-gray-800">
     <!-- Left side with photo and name -->
     <div class="flex items-center">
         <img src="../img/test-img2.jpg" alt="img" class="w-12 h-12 object-cover rounded-full">
         <div class="dropdown ml-2 relative inline-block">
             <div class="w-48 px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-gray-200 bg-gray-700 cursor-pointer" id="dropdownMenu">
-                Jhon Doe <!-- Le nom de l'utilisateur affiché -->
+                <?php echo $_SESSION['nickname']?> <!-- Le nom de l'utilisateur affiché -->
             </div>
             <ul class="hidden absolute left-0 mt-2 w-48 py-2 bg-white border border-gray-300 rounded-lg shadow-md" id="dropdownOptions">
                 <li><a href="../pages/profil_user.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Edition de profil</a></li>
-                <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200" id="disconnectLink">Déconnexion</a></li>
+                <li><a href="../auth.php?action=disconnect" class="block px-4 py-2 text-gray-800 hover:bg-gray-200" id="disconnectLink">Déconnexion</a></li>
             </ul>
         </div>
     </div>
@@ -62,6 +62,6 @@
         document.getElementById('popup').classList.add('hidden');
     });
     document.getElementById('confirmDisconnect').addEventListener('click', function () {
-        window.location.href = '../index.php';
+        window.location.href = '../auth.php?action=disconnect';
     });
 </script>
