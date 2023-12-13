@@ -65,7 +65,6 @@ $randomMovies = $randomMoviesResult->fetch_all(MYSQLI_ASSOC);
                 <?php endforeach; ?>
             </div>
         </div>
-        <!-- ... -->
     </main>
 
     <script>
