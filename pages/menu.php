@@ -166,6 +166,7 @@ $endIndex = 4;
             showPrev(carouselId);
         }
     </script>
+    
 </body>
 
 </html>
