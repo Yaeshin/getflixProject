@@ -16,23 +16,20 @@ $moviesPopulaire = [];
 while ($moviePopulaire = $resultPopulaire->fetch_assoc()) {
     $moviesPopulaire[] = $moviePopulaire;
 }
-
-// Variables pour suivre l'index de début et de fin des cartes affichées
-$startIndexPopulaire = 0;
-$endIndexPopulaire = 4;
 ?>
 
 <div class="w-full h-1/2 flex-grow">
     <h1 class="w-full h-10vh text-white bg-gray-700 text-4xl text-center py-4">Populaire</h1>
     <div class="flex justify-around items-center p-8 relative">
-        <button onclick="prevPopulaire('carouselRevoir')" class="absolute left-0 top-1/2 transform -translate-y-1/2 text-white px-3 py-2 rounded-l-lg focus:outline-none flex items-center">
+        <button onclick="prevPopulaire('carouselPopulaire')" class="absolute left-0 top-1/2 transform -translate-y-1/2 text-white px-3 py-2 rounded-l-lg focus:outline-none flex items-center">
             <img src="../img/selectorLeft.png" alt="left" class="w-1/2 h-auto transition-transform hover:scale-125 mx-auto">
         </button>
-        <div class="carousel flex" id="carouselRevoir">
+        <div class="carousel flex" id="carouselPopulaire">
             <!-- Les cartes de films seront générées ici -->
             <?php
-            foreach ($moviesPopulaire as $moviePopulaire) {
-                // Générer directement le contenu HTML ici
+            // Afficher les cinq premiers films populaires
+            for ($i = 0; $i < min(5, count($moviesPopulaire)); $i++) {
+                $moviePopulaire = $moviesPopulaire[$i];
                 echo "
                 <div class='w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105'>
                     <a href='film.php?id={$moviePopulaire['id_populaire']}' class='block w-full h-full bg-cover bg-center relative'>
@@ -46,7 +43,7 @@ $endIndexPopulaire = 4;
             }
             ?>
         </div>
-        <button onclick="nextPopulaire('carouselRevoir')" class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white px-3 py-2 rounded-r-lg focus:outline-none flex items-center">
+        <button onclick="nextPopulaire('carouselPopulaire')" class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white px-3 py-2 rounded-r-lg focus:outline-none flex items-center">
             <img src="../img/selectorRight.png" alt="left" class="w-1/2 h-auto transition-transform hover:scale-125 mx-auto">
         </button>
     </div>
@@ -58,9 +55,12 @@ $endIndexPopulaire = 4;
         const cardContainer = document.getElementById(carouselId);
         cardContainer.innerHTML = '';
 
-        const startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
-        for (let i = startIndex; i < startIndex + 5 && i < moviesPopulaire.length; i++) {
-            const movie = moviesPopulaire[i];
+        let startIndexPopular = cardContainer.dataset.startIndexPopular ? parseInt(cardContainer.dataset.startIndexPopular) : 0;
+        const totalMovies = <?= count($moviesPopulaire) ?>;
+
+        for (let i = startIndexPopular; i < startIndexPopular + 5; i++) {
+            const movieIndex = i % totalMovies;
+            const movie = <?= json_encode($moviesPopulaire) ?>[movieIndex];
             const card = `
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
                     <a href="film.php?id=${movie.id_populaire}" class="block w-full h-full bg-cover bg-center relative">
@@ -74,26 +74,24 @@ $endIndexPopulaire = 4;
             cardContainer.innerHTML += card;
         }
 
-        cardContainer.dataset.startIndex = startIndex + 5;
+        startIndexPopular = (startIndexPopular + 5) % totalMovies; // Mettre à jour l'index de départ pour le prochain lot de films
+        cardContainer.dataset.startIndexPopular = startIndexPopular;
     }
-
     // Fonction pour afficher les cartes précédentes pour un carrousel spécifique
     function showPrevPopulaire(carouselId) {
         const cardContainer = document.getElementById(carouselId);
-        let startIndex = cardContainer.dataset.startIndex ? parseInt(cardContainer.dataset.startIndex) : 0;
-        startIndex -= 5;
-        if (startIndex < 0) {
-            startIndex = 0;
+        let startIndexPopular = cardContainer.dataset.startIndexPopular ? parseInt(cardContainer.dataset.startIndexPopular) : 0;
+        startIndexPopular -= 10;
+        if (startIndexPopular < 0) {
+            startIndexPopular = 0;
         }
-        cardContainer.dataset.startIndex = startIndex;
+        cardContainer.dataset.startIndexPopular = startIndexPopular;
         showNextPopulaire(carouselId);
     }
-
     // Fonctions pour les boutons Précédent et Suivant
     function nextPopulaire(carouselId) {
         showNextPopulaire(carouselId);
     }
-
     function prevPopulaire(carouselId) {
         showPrevPopulaire(carouselId);
     }
