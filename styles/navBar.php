@@ -28,15 +28,15 @@
     </div>
     <div id="categoriesDiv" class="hidden absolute top-20 left-0 w-full h-1/3 bg-gray-800 px-0 m-0 z-50">
         <div class="flex flex-wrap justify-center items-center h-full">
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">Catégorie 1</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">Catégorie 1</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">Catégorie 1</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">Catégorie 1</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">Catégorie 1</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">Catégorie 1</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">Catégorie 1</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">Catégorie 1</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">Catégorie 1</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">1</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">2</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">3</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">4</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">5</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">6</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">7</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">8</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">9</a></div>
         </div>
     </div>
 
