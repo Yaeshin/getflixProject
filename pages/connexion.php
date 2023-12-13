@@ -35,13 +35,13 @@
                         </button>
                     </div>
                     <div class="text-center mt-10 sm:mt-10">
-                        <a href="auth.php?action=register" class="hover:text-blue-500 hover:underline hover:underline-offset-2
+                        <a href="auth.php?action=register" class="hover:text-blue-500 hover:underline hover:decoration-2
                                 hover:text-blue-500 hover:font-bold">
                             <p>S'inscrire</p>
                         </a>
                     </div>
                     <div class="mt-8 text-center">
-                        <a href="" class="hover:text-blue-500 hover:underline hover:underline-offset-2 hover:text-blue-500 hover:font-bold">
+                        <a href="" class="hover:text-blue-500 hover:underline hover:decoration-2 hover:text-blue-500 hover:font-bold">
                             <p>Mot de passe oublié ?</p>
                         </a>
                     </div>
