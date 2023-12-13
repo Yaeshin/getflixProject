@@ -30,12 +30,12 @@
         <input type="text" placeholder="Rechercher..." class="px-4 rounded-full focus:outline-none">
     </div>
     </div> -->
-
+    <?php session_start()?>
     <header class="h-10vh flex items-center justify-between p-4 bg-gray-800">
     <!-- Left side with photo and name -->
     <div class="flex items-center">
         <img src="../img/test-img2.jpg" alt="img" class="w-12 h-12 object-cover rounded-full">
-        <p class="ml-2 text-white text-lg font-bold">John Doe</p>
+        <p class="ml-2 text-white text-lg font-bold"><?php echo $_SESSION['nickname']?></p>
     </div>
 
     <!-- Center with logo -->
