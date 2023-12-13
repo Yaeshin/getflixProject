@@ -1,47 +1,22 @@
 
-<!--  <div class="w-screen h-36 header">
-    <div class="h-36 flex items-center">
-        Div contenant la photo de profil et le nom de l'utilisateur
-        <div class="h-5 w-5 rounded-full overflow-hidden">
-            <img src="../img/profile.png" alt="">
-        </div>
-        <p class="ml-2">Nom de l'utilisateur</p>
-    </div>
-
-    <div class="menu-content">
-        <div class="relative flex items-center" id="categoryNav">
-            <img src="../img/logo.png" alt="Logo" class="h-14 cursor-pointer" id="logo">
-            <div class="category-grid h-52 fixed" id="categoryGrid">
-                <a href="#" class="category-link hover:bg-gray-200">Action</a>
-                <a href="#" class="category-link hover:bg-gray-200">Comédie</a>
-                <a href="#" class="category-link hover:bg-gray-200">Drame</a>
-                <a href="#" class="category-link hover:bg-gray-200">Science-fiction</a>
-                <a href="#" class="category-link hover:bg-gray-200">Horreur</a>
-                <a href="#" class="category-link hover:bg-gray-200">Animation</a>
-                <a href="#" class="category-link hover:bg-gray-200">Fantaisie</a>
-                <a href="#" class="category-link hover:bg-gray-200">Romance</a>
-                <a href="#" class="category-link hover:bg-gray-200">Documentaire</a>
-            </div>
-        </div>
-    </div>
-
-    Barre de recherche
-    <div class="h-36 ml-4 flex items-center rounded-full shadow-sm">
-        <input type="text" placeholder="Rechercher..." class="px-4 rounded-full focus:outline-none">
-    </div>
-    </div> -->
-    <header class="h-10vh flex items-center justify-between p-4 bg-gray-800">
+<header class="h-10vh flex items-center justify-between p-4 bg-gray-800">
     <!-- Left side with photo and name -->
     <div class="flex items-center">
         <img src="../img/test-img2.jpg" alt="img" class="w-12 h-12 object-cover rounded-full">
-        <p class="ml-2 text-white text-lg font-bold"><?php echo $_SESSION['nickname']?></p>
+        <div class="dropdown ml-2 relative inline-block">
+            <div class="w-48 px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-gray-200 bg-gray-700 cursor-pointer" id="dropdownMenu">
+                <?php echo $_SESSION['nickname']?> <!-- Le nom de l'utilisateur affiché -->
+            </div>
+            <ul class="hidden absolute left-0 mt-2 w-48 py-2 bg-white border border-gray-300 rounded-lg shadow-md" id="dropdownOptions">
+                <li><a href="../pages/profil_user.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Edition de profil</a></li>
+                <li><a href="../auth.php?action=disconnect" class="block px-4 py-2 text-gray-800 hover:bg-gray-200" id="disconnectLink">Déconnexion</a></li>
+            </ul>
+        </div>
     </div>
 
     <!-- Center with logo -->
-    <div class="flex items-center justify-center flex-1"> <!-- Utilisation de justify-center pour centrer horizontalement -->
-        <div class="flex items-center justify-center h-full">
-            <a href="menu.php"><img src="../img/logo.png" alt="Logo" class="w-10"></a>
-        </div>
+    <div class="flex items-center justify-center flex-1">
+        <a href="menu.php"><img src="../img/logo.png" alt="Logo" class="w-10"></a>
     </div>
 
     <!-- Right side with search bar -->
@@ -53,3 +28,40 @@
     </div>
 </header>
 
+<!-- Popup div -->
+
+    <div class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 hidden z-50" id="popup">
+        <div class="bg-gray-700 p-6 rounded max-w-md relative transform transition-transform hover:scale-110" style="pointer-events: auto;">
+            <p class="text-white text-xl my-8 text-center mx-6" id="popupDescription">Voulez vous vous déconnecter ?</p>
+            <div class="flex justify-around">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 mr-2 rounded hover:scale-110" id="confirmDisconnect">Quitter</button>
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-4 px-8 rounded hover:scale-110" id="cancelDisconnect">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+    // Écouter le clic sur le bouton de la liste déroulante
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const dropdownOptions = document.getElementById('dropdownOptions');
+    const disconnectLink = document.getElementById('disconnectLink');
+
+    dropdownMenu.addEventListener('click', function () {
+        dropdownOptions.classList.toggle('hidden');
+    });
+
+    // Afficher la popup au clic sur "Déconnexion"
+    disconnectLink.addEventListener('click', function (event) {
+        event.preventDefault(); // Empêche le lien de se comporter par défaut (navigation)
+        document.getElementById('popup').classList.remove('hidden');
+    });
+
+    // Masquer la popup au clic sur "Annuler"
+    document.getElementById('cancelDisconnect').addEventListener('click', function () {
+        document.getElementById('popup').classList.add('hidden');
+    });
+    document.getElementById('confirmDisconnect').addEventListener('click', function () {
+        window.location.href = '../auth.php?action=disconnect';
+    });
+</script>
