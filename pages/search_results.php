@@ -2,7 +2,7 @@
 include '../config.php';
 
 // Récupération du terme de recherche depuis le formulaire
-$search_term = mysqli_real_escape_string($conn, $_POST['search_term']);
+$search_term = mysqli_real_escape_string($conn, $_GET['search_term']);
 
 // Requête SQL pour la recherche dans la table 'movies'
 $sql_movies = "SELECT * FROM movies 
@@ -74,7 +74,7 @@ $displayed_movies = [];
                         }
                     }
                 } else {
-                    echo "Aucun résultat trouvé dans la table 'movies'.<br>";
+                    echo "Aucun résultat trouvé.<br>";
                 }
 
                 // Affichage des résultats de la table 'populaire'
@@ -97,7 +97,7 @@ $displayed_movies = [];
                         }
                     }
                 } else {
-                    echo "Aucun résultat trouvé dans la table 'populaire'.<br>";
+                    //echo "Aucun résultat trouvé dans la table 'populaire'.<br>";
                 }
                 ?>
 
