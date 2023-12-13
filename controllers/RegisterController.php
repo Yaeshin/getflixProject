@@ -14,7 +14,7 @@ class RegisterController{
             $notification = $this->_db->register($_POST['email'],$_POST['username'],$_POST['password']);
             if($notification=="true"){
                 $_SESSION['email'] = $_POST['email'];
-                $_SESSION['role'] = ADMIN;
+                $_SESSION['role'] = MEMBER;
                 $_SESSION['nickname'] =$_SESSION['user']->html_nickname();
                 header("Location: pages/menu.php");
                 die();
