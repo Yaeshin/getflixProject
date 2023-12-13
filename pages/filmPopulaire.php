@@ -1,6 +1,12 @@
 <?php
 include '../config.php';
 
+session_start();
+if (empty($_SESSION['user'])) {
+    header("Location: ../index.php");
+    die();
+}
+
 // Récupérer l'identifiant du film depuis l'URL
 $film_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
@@ -40,7 +46,30 @@ while ($comment = $commentResult->fetch_assoc()) {
     }
 
     $comments[] = $comment;
+
+}// ajout de commentaire
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $comment_content = isset($_POST['comment_content']) ? htmlspecialchars($_POST['comment_content']) : '';
+
+    if (!empty($comment_content)) {
+        $user_id = 1; // Remplacez cela par la méthode appropriée pour obtenir l'ID de l'utilisateur actuel
+
+        // Requête pour insérer le commentaire dans la base de données
+        $insert_comment_query = "INSERT INTO comments (user, movie, content) VALUES ('$user_id', '$film_id', '$comment_content')";
+        $insert_result = $conn->query($insert_comment_query);
+
+        if ($insert_result === false) {
+            die("Erreur lors de l'ajout du commentaire : " . $conn->error);
+        } else {
+            // Commentaire ajouté avec succès, rediriger avec un message de succès
+            session_start();
+            $_SESSION['success_message'] = "Le commentaire a été ajouté avec succès.";
+            header("Location: $_SERVER[REQUEST_URI]");
+            exit();
+        }
+    }
 }
+
 
 $conn->close();
 
@@ -119,13 +148,20 @@ function formatDuration($durationMinutes) {
 
                         <iframe src="<?php echo $film['trailer_populaire']; ?>" title="trailer <?php echo $film['title_populaire']; ?>" frameborder="0" allowfullscreen class="rounded-xl h-5/6 w-full"></iframe>
 
-                        <form class="flex flex-row w-6/6 h-1/6 py-4">
-                            <input type="text" class="w-5/6 border rounded-xl px-2 focus:outline-none focus:ring focus:border-blue-500 mr-1" placeholder="Votre commentaire...">
+                        <form class="flex flex-row w-6/6 h-1/6 py-4" method="post" action="">
+                            <input type="text" name="comment_content" class="w-5/6 border rounded-xl px-2 focus:outline-none focus:ring focus:border-blue-500 mr-1" placeholder="Votre commentaire..." required>
                             <button type="submit" class="w-1/6 bg-blue-500 text-white rounded-xl ml-1">Envoyer</button>
                         </form>
                     </div>
                 </div>
                 <div class="h-1/3 overflow-y-auto mr-4 custom-scroll">
+
+                <?php
+                if (isset($_SESSION['success_message'])) {
+                    echo '<div class="bg-green-500 text-white p-3 mb-3 rounded">' . $_SESSION['success_message'] . '</div>';
+                    unset($_SESSION['success_message']); 
+                }
+                ?>
 
                 <?php foreach ($comments as $comment): ?>
                     <div class="flex flex-col bg-gray-800 rounded-2xl px-2 py-1 my-2 mx-1">
