@@ -12,7 +12,7 @@
 <body>
   <div class="flex items-center h-screen justify-center bg-gray-800 shadow-2xl">
     <div class="w-full">
-      <div class="">
+      <div class="mx-auto w-2/3 md:w-4/6 lg:w-5/12 flex justify-center items-center border-2 rounded-md border-gray-700 py-7 mt-5 bg-gray-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40 mx-auto">
         <div class="max-w-md my-3 opacity-90">
           <div class="flex justify-center">
             <h1 class="text-2xl text-zinc-600 font-bold lg:tracking-widest">Inscription</h1>
