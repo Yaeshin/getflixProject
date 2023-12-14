@@ -1,7 +1,7 @@
 
 <header class="h-10vh flex items-center justify-between p-4 bg-gray-800">
     <!-- Left side with photo and name -->
-    <div class="flex items-center w-1/4">
+    <div class="flex items-center">
         <img src="../img/test-img2.jpg" alt="img" class="w-12 h-12 object-cover rounded-full">
         <div class="dropdown ml-2 relative inline-block">
             <div class="w-48 px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-gray-200 bg-gray-700 cursor-pointer" id="dropdownMenu">
@@ -16,11 +16,11 @@
 
     <!-- Center with logo -->
     <div class="flex items-center justify-center flex-1">
-        <a href="menu.php"><img src="../img/logo.png" alt="Logo" class="w-10"></a>
+        <a href="#" id="centralLogo"><img src="../img/logo.png" alt="Logo" class="w-10"></a>
     </div>
 
     <!-- Right side with search bar -->
-    <div class="flex items-center w-1/4 justify-end">
+    <div class="flex items-center">
         <form action="search_results.php" method="GET">
             <input type="text" name="search_term" placeholder="Search..." class="px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-500">
             <button class="ml-2 px-3 py-1 bg-blue-500 text-white rounded">Search</button>
@@ -54,13 +54,20 @@
         </div>
     </div>
 
-
 <script>
 
     // Écouter le clic sur le bouton de la liste déroulante
     const dropdownMenu = document.getElementById('dropdownMenu');
     const dropdownOptions = document.getElementById('dropdownOptions');
     const disconnectLink = document.getElementById('disconnectLink');
+        // Cibler le logo central et le div des catégories
+    const centralLogo = document.getElementById('centralLogo');
+    const categoriesDiv = document.getElementById('categoriesDiv');
+
+    // Ajouter un écouteur d'événements pour le clic sur le logo central
+    centralLogo.addEventListener('click', function () {
+        categoriesDiv.classList.toggle('hidden');
+    });
 
     dropdownMenu.addEventListener('click', function () {
         dropdownOptions.classList.toggle('hidden');
@@ -79,8 +86,4 @@
     document.getElementById('confirmDisconnect').addEventListener('click', function () {
         window.location.href = '../auth.php?action=disconnect';
     });
-    document.querySelector('.w-10').addEventListener('click', function() {
-        document.getElementById('categoriesDiv').classList.toggle('hidden');
-    });
-
 </script>
