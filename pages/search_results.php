@@ -69,8 +69,8 @@ $displayed_movies = [];
                             <div class="w-64 h-96 mx-2 my-2 flex-none overflow-hidden rounded-lg transform transition-transform hover:scale-105">
                                 <a href="film.php?id=<?php echo $row['id_movie']; ?>" class="block w-full h-full">
                                     <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                                        <span class="text-white text-lg font-bold mb-2 truncate"><?php echo $row['title']; ?></span>
-                                        <span class="text-white text-center mx-5 truncate"><?php echo $row['description']; ?></span>
+                                        <span class="text-white text-lg font-bold mb-2 px-3 text-center"><?php echo $row['title']; ?></span>
+                                        <span class="text-white text-center px-3 text-center"><?php echo $row['description']; ?></span>
                                     </div>
                                     <img src="<?php echo $row['image']; ?>" alt="Image" class="w-full h-full object-cover">
                                 </a>
@@ -89,8 +89,8 @@ $displayed_movies = [];
                             <div class="w-64 h-96 mx-2 my-2 flex-none overflow-hidden rounded-lg transform transition-transform hover:scale-105">
                                 <a href="filmPopulaire.php?id=<?php echo $row['id_populaire']; ?>" class="block w-full h-full">
                                     <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                                        <span class="text-white text-lg font-bold mb-2"><?php echo $row['title_populaire']; ?></span>
-                                        <span class="text-white text-center mx-5"><?php echo $row['description_populaire']; ?></span>
+                                        <span class="text-white text-lg font-bold mb-2 px-3 text-center"><?php echo $row['title_populaire']; ?></span>
+                                        <span class="text-white text-center px-3"><?php echo $row['description_populaire']; ?></span>
                                     </div>
                                     <img src="<?php echo $row['image_populaire']; ?>" alt="Image" class="w-full h-full object-cover">
                                 </a>
