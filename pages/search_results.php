@@ -58,20 +58,19 @@ $displayed_movies = [];
     <main class="flex-1 flex flex-grow flex-col block">
         <div class="w-full h-1/2 flex-grow">
             <h1 class="w-full h-10vh text-white bg-gray-700 text-4xl text-center py-4">Résultats de la recherche pour "<?php echo $search_term; ?>"</h1>
-            <div class="flex justify-around p-8">
-
+            <div class="flex flex-wrap justify-center p-8">
                 <?php
                 if ($result_movies->num_rows > 0) {
                     foreach ($result_movies as $row) {
-                        // Vérifier si le film a déjà été affiché
                         if (!in_array($row['id_movie'], $displayed_movies)) {
-                            $displayed_movies[] = $row['id_movie']; // Ajouter l'ID au tableau des films affichés
+                            $displayed_movies[] = $row['id_movie'];
                 ?>
-                            <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                                <a href="film.php?id=<?php echo $row['id_movie']; ?>" class="block w-full h-full bg-cover bg-center relative">
+                            <!-- Cartes de la table movies -->
+                            <div class="w-64 h-96 mx-2 my-2 flex-none overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                                <a href="film.php?id=<?php echo $row['id_movie']; ?>" class="block w-full h-full">
                                     <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                                        <span class="text-white text-lg font-bold mb-2"><?php echo $row['title']; ?></span>
-                                        <span class="text-white text-center mx-5"><?php echo $row['description']; ?></span>
+                                        <span class="text-white text-lg font-bold mb-2 px-3 text-center"><?php echo $row['title']; ?></span>
+                                        <span class="text-white text-center px-3 text-center"><?php echo $row['description']; ?></span>
                                     </div>
                                     <img src="<?php echo $row['image']; ?>" alt="Image" class="w-full h-full object-cover">
                                 </a>
@@ -79,22 +78,19 @@ $displayed_movies = [];
                 <?php
                         }
                     }
-                } else {
-                    echo "Aucun résultat trouvé.<br>";
                 }
 
-                // Affichage des résultats de la table 'populaire'
                 if ($result_populaire->num_rows > 0) {
                     foreach ($result_populaire as $row) {
-                        // Vérifier si le film a déjà été affiché
                         if (!in_array($row['id_populaire'], $displayed_movies)) {
-                            $displayed_movies[] = $row['id_populaire']; // Ajouter l'ID au tableau des films affichés
+                            $displayed_movies[] = $row['id_populaire'];
                 ?>
-                            <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
-                                <a href="filmPopulaire.php?id=<?php echo $row['id_populaire']; ?>" class="block w-full h-full bg-cover bg-center relative">
+                            <!-- Cartes de la table populaire -->
+                            <div class="w-64 h-96 mx-2 my-2 flex-none overflow-hidden rounded-lg transform transition-transform hover:scale-105">
+                                <a href="filmPopulaire.php?id=<?php echo $row['id_populaire']; ?>" class="block w-full h-full">
                                     <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
-                                        <span class="text-white text-lg font-bold mb-2"><?php echo $row['title_populaire']; ?></span>
-                                        <span class="text-white text-center mx-5"><?php echo $row['description_populaire']; ?></span>
+                                        <span class="text-white text-lg font-bold mb-2 px-3 text-center"><?php echo $row['title_populaire']; ?></span>
+                                        <span class="text-white text-center px-3"><?php echo $row['description_populaire']; ?></span>
                                     </div>
                                     <img src="<?php echo $row['image_populaire']; ?>" alt="Image" class="w-full h-full object-cover">
                                 </a>
@@ -102,11 +98,8 @@ $displayed_movies = [];
                 <?php
                         }
                     }
-                } else {
-                    //echo "Aucun résultat trouvé dans la table 'populaire'.<br>";
                 }
                 ?>
-
             </div>
         </div>
     </main>

@@ -52,16 +52,16 @@ while ($moviePopulaire = $resultPopulaire->fetch_assoc()) {
 <script>
     // Fonction pour afficher les cartes suivantes pour un carrousel spécifique
     function showNextPopulaire(carouselId) {
-        const cardContainer = document.getElementById(carouselId);
-        cardContainer.innerHTML = '';
+        const cardContainerPop = document.getElementById(carouselId);
+        cardContainerPop.innerHTML = '';
 
-        let startIndexPopular = cardContainer.dataset.startIndexPopular ? parseInt(cardContainer.dataset.startIndexPopular) : 0;
+        let startIndexPopular = cardContainerPop.dataset.startIndexPopular ? parseInt(cardContainerPop.dataset.startIndexPopular) : 0;
         const totalMovies = <?= count($moviesPopulaire) ?>;
 
         for (let i = startIndexPopular; i < startIndexPopular + 5; i++) {
-            const movieIndex = i % totalMovies;
-            const movie = <?= json_encode($moviesPopulaire) ?>[movieIndex];
-            const card = `
+            const movieIndexPop = i % totalMovies;
+            const movie = <?= json_encode($moviesPopulaire) ?>[movieIndexPop];
+            const cardPop = `
                 <div class="w-64 h-96 mx-5 relative overflow-hidden rounded-lg transform transition-transform hover:scale-105">
                     <a href="filmPopulaire.php?id=${movie.id_populaire}" class="block w-full h-full bg-cover bg-center relative">
                         <div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 hover:opacity-90 flex flex-col justify-center items-center">
@@ -71,21 +71,21 @@ while ($moviePopulaire = $resultPopulaire->fetch_assoc()) {
                         <img src="${movie.image_populaire}" alt="Image" class="w-full h-full object-cover">
                     </a>
                 </div>`;
-            cardContainer.innerHTML += card;
+                cardContainerPop.innerHTML += cardPop;
         }
 
         startIndexPopular = (startIndexPopular + 5) % totalMovies; // Mettre à jour l'index de départ pour le prochain lot de films
-        cardContainer.dataset.startIndexPopular = startIndexPopular;
+        cardContainerPop.dataset.startIndexPopular = startIndexPopular;
     }
     // Fonction pour afficher les cartes précédentes pour un carrousel spécifique
     function showPrevPopulaire(carouselId) {
-        const cardContainer = document.getElementById(carouselId);
-        let startIndexPopular = cardContainer.dataset.startIndexPopular ? parseInt(cardContainer.dataset.startIndexPopular) : 0;
+        const cardContainerPop = document.getElementById(carouselId);
+        let startIndexPopular = cardContainerPop.dataset.startIndexPopular ? parseInt(cardContainerPop.dataset.startIndexPopular) : 0;
         startIndexPopular -= 10;
         if (startIndexPopular < 0) {
             startIndexPopular = 0;
         }
-        cardContainer.dataset.startIndexPopular = startIndexPopular;
+        cardContainerPop.dataset.startIndexPopular = startIndexPopular;
         showNextPopulaire(carouselId);
     }
     // Fonctions pour les boutons Précédent et Suivant
