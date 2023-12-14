@@ -31,7 +31,7 @@
                         <input class="bg-slate-50 peer appearance-none mt-1 bg-slate-50 peer appearance-none    w-full py-2 px-2 text-gray-700 leading-tight px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-500" type="password" placeholder="******************" id="password" name="password">
                     </div>
                     <div class="mt-10 sm:mt-10 flex justify-center">
-                        <button class="bg-sky-500 hover:bg-sky-700 py-1 px-3 text-xl mx-auto mt-10 text-white rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg shadow-blue-500/50" type="submit" value="Login">
+                        <button class="bg-sky-500 hover:bg-sky-700 py-1 px-3 text-xl mx-auto mt-10 text-white rounded transition ease-in-out delay-150 bg-blue-600 hover:-translate-y-1 hover:scale-110 hover:bg-blue-80000 duration-300 shadow-lg shadow-blue-500/50" type="submit" value="Login">
                             Connexion
                         </button>
                     </div>
