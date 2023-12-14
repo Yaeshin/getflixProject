@@ -69,9 +69,9 @@ class Db {
     }
 
     public function connectUser($email){
-        $query =    'SELECT m.*
-                    FROM users m
-                    WHERE m.email = :email';
+        $query =    'SELECT u.*
+                    FROM users u
+                    WHERE u.email = :email';
 
         $ps = $this->_connection->prepare($query);
         $ps->bindValue(':email', $email);
@@ -79,6 +79,48 @@ class Db {
 
         $row = $ps->fetch();
         $_SESSION['user'] = new User($row->id_user,$row->nickname,$row->email, $row->role,$row->is_disabled);
+    }
+
+    public function editProfile($idUser, $email, $nickname, $password){
+        if($nickname!=''){
+            $queryNickname = 'SELECT nickname from users WHERE nickname = :nickname';
+            $psNickname = $this->_connection->prepare($queryNickname);
+            $psNickname->bindValue(':nickname',$nickname);
+            $psNickname->execute();
+            if($psNickname->rowcount() != 0)
+                return 'Nickname already used';
+        }
+        if($email!=''){
+            $queryEmail = 'SELECT email FROM users WHERE email=:email';
+            $psEmail = $this->_connection->prepare($queryEmail);
+            $psEmail->bindValue(':email',$email);
+            $psEmail->execute();
+            if($psEmail->rowCount() != 0)
+                return 'Email already used';
+        }
+        if($nickname!=''){
+            $updateNick = 'UPDATE users SET nickname=:nickname WHERE id_user= :id_user';
+            $ps = $this->_connection->prepare($updateNick);
+            $ps->bindValue(':nickname', $nickname);
+            $ps->bindValue(':id_user', $idUser);
+            $ps->execute();
+        }
+        if($email!=''){
+            $updateEmail = 'UPDATE users SET email=:email WHERE id_user= :id_user';
+            $ps = $this->_connection->prepare($updateEmail);
+            $ps->bindValue(':email', $email);
+            $ps->bindValue(':id_user', $idUser);
+            $ps->execute();
+        }
+        if($password!=''){
+            $updatePw = 'UPDATE users SET email=:email WHERE id_user= :id_user';
+            $ps = $this->_connection->prepare($updatePw);
+            $ps->bindValue(':password', password_hash($password,PASSWORD_BCRYPT));
+            $ps->bindValue(':id_user', $idUser);
+            $ps->execute();
+        }
+        self::connectUser($email);
+        return "true";
     }
 
     public function seeAllUsers(){
