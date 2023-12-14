@@ -100,6 +100,7 @@ if (!empty($nickname)) {
     echo "Nickname non défini dans la session.";
 }
 
+
 // Fermer la connexion à la base de données
 $conn->close();
 

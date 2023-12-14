@@ -26,6 +26,20 @@
             <button class="ml-2 px-3 py-1 bg-blue-500 text-white rounded">Search</button>
         </form>
     </div>
+    <div id="categoriesDiv" class="hidden absolute top-20 left-0 w-full h-1/3 bg-gray-800 px-0 m-0 z-50">
+        <div class="flex flex-wrap justify-center items-center h-full">
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Action">Action</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Comedy">Comedy</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Adventure">Adventure</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Drame">Drame</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Science%20Fiction">Science Fiction</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Thriller">Thriller</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Horror">Horror</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Fantasy">Fantasy</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Animation">Animation</a></div>
+        </div>
+    </div>
+
 </header>
 
 <!-- Popup div -->
