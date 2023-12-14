@@ -1,6 +1,12 @@
 <?php
 include '../config.php';
 
+session_start();
+if (empty($_SESSION['user'])) {
+    header("Location: ../index.php");
+    die();
+}
+
 // Récupération du terme de recherche depuis le formulaire
 $search_term = mysqli_real_escape_string($conn, $_GET['search_term']);
 
