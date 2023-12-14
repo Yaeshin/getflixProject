@@ -16,7 +16,7 @@
 
     <!-- Center with logo -->
     <div class="flex items-center justify-center flex-1">
-        <a href="menu.php"><img src="../img/logo.png" alt="Logo" class="w-10"></a>
+        <a href="#" id="centralLogo"><img src="../img/logo.png" alt="Logo" class="w-10"></a>
     </div>
 
     <!-- Right side with search bar -->
@@ -60,6 +60,14 @@
     const dropdownMenu = document.getElementById('dropdownMenu');
     const dropdownOptions = document.getElementById('dropdownOptions');
     const disconnectLink = document.getElementById('disconnectLink');
+        // Cibler le logo central et le div des catégories
+    const centralLogo = document.getElementById('centralLogo');
+    const categoriesDiv = document.getElementById('categoriesDiv');
+
+    // Ajouter un écouteur d'événements pour le clic sur le logo central
+    centralLogo.addEventListener('click', function () {
+        categoriesDiv.classList.toggle('hidden');
+    });
 
     dropdownMenu.addEventListener('click', function () {
         dropdownOptions.classList.toggle('hidden');
