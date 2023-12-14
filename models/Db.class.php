@@ -29,7 +29,7 @@ class Db {
         $psNickname->bindValue(':nickname',$nickname);
         $psNickname->execute();
         if($psNickname->rowcount() != 0)
-            return 'nickname already used';
+            return 'Nickname already used';
 
         $queryEmail = 'SELECT email FROM users WHERE email=:email';
         $psEmail = $this->_connection->prepare($queryEmail);
@@ -57,14 +57,14 @@ class Db {
 
         $row = $ps->fetch();
         if ($ps->rowcount() == 0)
-            return 'wrong email';
+            return 'Email is not registered';
         if ($row->is_disabled == '1') // == true
-            return 'banned';
+            return 'Account banned';
         if (password_verify($password, $row->password)) {
-            self::connectuser($email);
+            self::connectUser($email);
             return $row->role;
         }
-        return 'incorrect password';
+        return 'Incorrect password';
 
     }
 

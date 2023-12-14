@@ -1,9 +1,18 @@
 <?php 
-session_start();
-if (empty($_SESSION['user'])) {
-    header("Location: ../index.php");
-    die();
-}
+    require_once('../config.php');
+
+    function loadClass($className) {
+        require_once('../models/' . $className . '.class.php');
+    }
+    spl_autoload_register('loadClass');
+
+    session_start();
+    if (empty($_SESSION['user'])) {
+        header("Location: ../index.php");
+        die();
+    }
+
+    $db=Db::getInstance($servername,$dbname,$username,$password);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,25 +51,25 @@ if (empty($_SESSION['user'])) {
                                     
                             </div> 
                             <div class="block  mt-5 gap">
-                                <label class="block text-black mb-1 " for="pseudo_inscription">Pseudo</label>
-                                <input type="text" class="peer bg-slate-50 peer  appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "Joe" id="pseudo_inscription" name="pseudo_inscription"/>
+                                <label class="block text-black mb-1 ">Pseudo</label>
+                                <input type="text" class="peer bg-slate-50 peer  appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" placeholder=<?php echo $_SESSION['nickname'] ?> id="newNick" name="newNick"/>
                             </div>
                         </div>
                         <div class="row-span-4 col-span-2 grid grid-cols-1 gap-2">
                             <div class="block ">
-                                <label class="block text-black mb-1 " for="email_inscription">Adresse Mail</label>
-                                <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" id="inline-password" placeholder= "exemple@gmail.com" id="email_inscription" name="email_inscription"/>
+                                <label class="block text-black mb-1 ">Adresse Mail</label>
+                                <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white  focus:border-sky-500" placeholder=<?php echo $_SESSION['user']->html_email() ?> id="newEmail" name="newEmail"/>
                                 <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
                                 Please provide a valid email address.
                                 </p>
                         </div>
                         <div class="block">
-                            <label class="block text-black " for="password_inscription">Mot de passe</label>
-                            <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="password_inscription" name="password_inscription">
+                            <label class="block text-black ">Mot de passe</label>
+                            <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" type="password" placeholder="******************" id="newPw" name="newPw">
                         </div>
                         <div class="block mt-10">
                             <label class="block text-black"> Répéter le mot de passe </label>
-                            <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************">
+                            <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" type="password" placeholder="******************" id="confirmNewPw" name="confirmNewPw">
                         </div>
                     </div>
                 

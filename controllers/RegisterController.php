@@ -11,7 +11,8 @@ class RegisterController{
     public function run(){
         $notification = '';
         if(!empty($_POST['register'])){
-            $notification = $this->_db->register($_POST['email'],$_POST['username'],$_POST['password']);
+            if($_POST['password']==$_POST['pwConfirm']) $notification = $this->_db->register($_POST['email'],$_POST['username'],$_POST['password']);
+            else $notification="Passwords don't match";
             if($notification=="true"){
                 $_SESSION['email'] = $_POST['email'];
                 $_SESSION['role'] = MEMBER;
