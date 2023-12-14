@@ -1,7 +1,7 @@
 
 <header class="h-10vh flex items-center justify-between p-4 bg-gray-800">
     <!-- Left side with photo and name -->
-    <div class="flex items-center w-1/4">
+    <div class="flex items-center">
         <img src="../img/test-img2.jpg" alt="img" class="w-12 h-12 object-cover rounded-full">
         <div class="dropdown ml-2 relative inline-block">
             <div class="w-48 px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-gray-200 bg-gray-700 cursor-pointer" id="dropdownMenu">
@@ -20,26 +20,12 @@
     </div>
 
     <!-- Right side with search bar -->
-    <div class="flex items-center w-1/4 justify-end">
+    <div class="flex items-center">
         <form action="search_results.php" method="GET">
             <input type="text" name="search_term" placeholder="Search..." class="px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-500">
             <button class="ml-2 px-3 py-1 bg-blue-500 text-white rounded">Search</button>
         </form>
     </div>
-    <div id="categoriesDiv" class="hidden absolute top-20 left-0 w-full h-1/3 bg-gray-800 px-0 m-0 z-50">
-        <div class="flex flex-wrap justify-center items-center h-full">
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">1</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">2</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">3</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">4</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">5</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">6</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">7</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">8</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="#categorie1">9</a></div>
-        </div>
-    </div>
-
 </header>
 
 <!-- Popup div -->
@@ -53,7 +39,6 @@
             </div>
         </div>
     </div>
-
 
 <script>
 
@@ -79,8 +64,4 @@
     document.getElementById('confirmDisconnect').addEventListener('click', function () {
         window.location.href = '../auth.php?action=disconnect';
     });
-    document.querySelector('.w-10').addEventListener('click', function() {
-        document.getElementById('categoriesDiv').classList.toggle('hidden');
-    });
-
 </script>
