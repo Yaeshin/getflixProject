@@ -119,8 +119,21 @@ class Db {
             $ps->bindValue(':id_user', $idUser);
             $ps->execute();
         }
-        self::connectUser($email);
+        self::connectUserById($idUser);
         return "true";
+    }
+
+    public function connectUserById($id){
+        $query =    'SELECT u.*
+                    FROM users u
+                    WHERE u.id_user = :id_user';
+
+        $ps = $this->_connection->prepare($query);
+        $ps->bindValue(':id_user', $id);
+        $ps->execute();
+
+        $row = $ps->fetch();
+        $_SESSION['user'] = new User($row->id_user,$row->nickname,$row->email, $row->role,$row->is_disabled);
     }
 
     public function seeAllUsers(){
