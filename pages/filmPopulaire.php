@@ -175,21 +175,25 @@ function formatDuration($durationMinutes) {
                     <div class="w-2/3 h-full flex flex-col rounded-xl mx-6">
 
                         <iframe src="<?php echo $film['trailer_populaire']; ?>" title="trailer <?php echo $film['title_populaire']; ?>" frameborder="0" allowfullscreen class="rounded-xl h-5/6 w-full"></iframe>
-
+                        
+                        
                         <form class="flex flex-row w-6/6 h-1/6 py-4" method="post" action="">
                             <input type="text" name="comment_content" class="w-5/6 border rounded-xl px-2 focus:outline-none focus:ring focus:border-blue-500 mr-1" placeholder="Votre commentaire..." required>
                             <button type="submit" class="w-1/6 bg-blue-500 text-white rounded-xl ml-1">Envoyer</button>
                         </form>
+                        
                     </div>
                 </div>
                 <div class="h-1/3 overflow-y-auto mr-4 custom-scroll">
 
+                <div id="successMessage" class="success-message">
                 <?php
                 if (isset($_SESSION['success_message'])) {
                     echo '<div class="bg-green-500 text-white p-3 mb-3 rounded">' . $_SESSION['success_message'] . '</div>';
                     unset($_SESSION['success_message']); 
                 }
                 ?>
+                </div>
 
                 <?php foreach ($comments as $comment): ?>
                     <div class="flex flex-col bg-gray-800 rounded-2xl px-2 py-1 my-2 mx-1">
@@ -206,7 +210,6 @@ function formatDuration($durationMinutes) {
 // Sélectionnez l'élément du message de succès
 var successMessage = document.getElementById('successMessage');
 
-// Masquez ou supprimez le message après 5 secondes (5000 millisecondes)
 if (successMessage) {
     setTimeout(function () {
         successMessage.style.display = 'none'; // Masquer le message
