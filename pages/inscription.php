@@ -19,6 +19,7 @@
           </div>
           <form class="grid place-content-center" action="auth.php?action=register" method="post">
             <div class="block ">
+            <p class="notification mt-2 peer-invalid:visible text-pink-600 text-sm" ><?php echo $notification; ?></p>
               <label class="block text-slate-700 mb-1  mt-5 text-center lg:tracking-wider" for="email_inscription">Email</label>
               <input type="email" class="peer mt-1 bg-slate-50 appearance-none w-full  lg:scale-x-150 text-gray-700 leading-tight px-2 py-2 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-500 " placeholder="exemple@gmail.com" id="email_inscription" name="email" required>
               <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">

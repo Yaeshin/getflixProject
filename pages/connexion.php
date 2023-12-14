@@ -16,6 +16,7 @@
                 <div class="flex justify-center max-w-md my-3 opacity-90">
                     <h1 class="text-2xl text-zinc-600 font-bold">Connexion</h1>
                 </div>
+                <div class="notification peer-invalid:visible text-pink-600 text-sm" ><?php echo $notification; ?></div>
                 <!-- Debut du formulaire -->
                 <form class="grid place-content-center" method="post">
                     <div class="block ">
