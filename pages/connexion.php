@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/logo.png" type="image/x-icon">
-    <title>Connexion</title>
+    <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -14,7 +14,7 @@
         <div class=" lg:w-1/3 w-2/3 md:w-4/6 bg-gray-300 p-2 my-10 mx-auto shadow-2xl border-2 rounded-md bg-gray-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40">
             <div class="max-w-md my-3 opacity-90 mx-auto">
                 <div class="flex justify-center max-w-md my-3 opacity-90">
-                    <h1 class="text-2xl text-zinc-600 font-bold">Connexion</h1>
+                    <h1 class="text-2xl text-zinc-600 font-bold">Login</h1>
                 </div>
                 <div class="notification peer-invalid:visible text-pink-600 text-sm" ><?php echo $notification; ?></div>
                 <!-- Debut du formulaire -->
@@ -32,18 +32,18 @@
                     </div>
                     <div class="mt-10 sm:mt-10 flex justify-center">
                         <button class="bg-sky-500 hover:bg-sky-700 py-1 px-3 text-xl mx-auto mt-10 text-white rounded transition ease-in-out delay-150 bg-blue-600 hover:-translate-y-1 hover:scale-110 hover:bg-blue-80000 duration-300 shadow-lg shadow-blue-500/50" type="submit" value="Login">
-                            Connexion
+                            Login
                         </button>
                     </div>
                     <div class="text-center mt-10 sm:mt-10">
                         <a href="auth.php?action=register" class="hover:text-blue-500 hover:underline hover:decoration-2
                                 hover:text-blue-500 hover:font-bold">
-                            <p>S'inscrire</p>
+                            <p>Register</p>
                         </a>
                     </div>
                     <div class="mt-8 text-center">
                         <a href="" class="hover:text-blue-500 hover:underline hover:decoration-2 hover:text-blue-500 hover:font-bold">
-                            <p>Mot de passe oublié ?</p>
+                            <p>Forgot password ?</p>
                         </a>
                     </div>
                 </form>
