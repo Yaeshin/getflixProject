@@ -115,7 +115,7 @@ function formatDuration($durationMinutes) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Menu</title>
+    <title>Film Populaire</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         ::-webkit-scrollbar {
@@ -135,77 +135,70 @@ function formatDuration($durationMinutes) {
 <body class="w-screen h-screen bg-gray-600 overflow-x-hidden flex flex-col">
     <?php include "../styles/navBar.php"; ?>
     <main class="flex-1 flex flex-row block overflow-hidden">
-            <div class="w-1/4 h-4/4 flex items-stretch flex-shrink-0">
-
-                <img src="<?php echo $film['image_populaire']; ?>" alt="affiche <?php echo $film['title_populaire']; ?>" class="object-cover w-full h-9/10 rounded-3xl p-3">
-
-            </div>
-            <div class="w-3/4 h-4/4 flex flex-col relative m-3 flex-shrink-0">
-                <div class="flex h-2/3">
-                    <div class="w-1/3 h-full rounded-2xl">
-                        <div class="h-5/6 bg-gray-800 rounded-2xl flex flex-col items-center justify-center px-6">
-                            <h2 class="w-full h-1/3 flex items-center justify-center text-white text-3xl font-bold text-center"> <?php echo $film['title_populaire']; ?> </h2>
-                            <div class="flex w-full h-2/3 flex-col justify-center">
-                                <div class="w-full h-1/2 overflow-y-auto">
-                                    <p class="text-white text-center mx-5"><?php echo $film['description_populaire']; ?></p>
-                                </div>
-                                <div class="py-5">
-                                    <p class="text-white font-bold mx-5 my-2">Date de sortie: <?php echo $film['release_date_populaire']; ?></p>
-                                    <p class="text-white font-bold mx-5 my-2">Genres: <?php echo $film['categories_populaire']; ?></p>
-                                    <p class="text-white font-bold mx-5 my-2">Durée: <?php echo formatDuration($film['duration_populaire']); ?></p>
-                                </div>
-                               
+        <div class="w-1/4 h-4/4 flex items-stretch flex-shrink-0">
+            <img src="<?php echo $film['image_populaire']; ?>" alt="affiche <?php echo $film['title_populaire']; ?>" class="object-cover w-full h-5/10 rounded-3xl p-3">
+        </div>
+        <div class="w-1/4 h-full flex flex-row relative py-3 flex-shrink-0">
+            <div class="flex w-full h-full items-center">
+                <div class="w-full h-full rounded-2xl">
+                    <div class="h-full bg-gray-800 rounded-2xl flex flex-col items-center justify-center px-6">
+                        <h2 class="w-full h-1/4 flex items-center justify-center text-white text-3xl font-bold text-center"> <?php echo $film['title_populaire']; ?> </h2>
+                        <div class="flex w-full h-1/2 flex-col justify-center">
+                            <div class="w-full h-1/2 overflow-y-auto">
+                                <p class="text-white mx-3"><?php echo $film['description_populaire']; ?></p>
+                            </div>
+                            <div class="py-3">
+                                <p class="text-white font-bold mx-3 my-2 py-2 pl-1 border-b border-gray-600">Date de sortie: <?php echo $film['release_date_populaire']; ?></p>
+                                <p class="text-white font-bold mx-3 my-2 py-2 pl-1 border-b border-gray-600">Genres: <?php echo $film['categories_populaire']; ?></p>
+                                <p class="text-white font-bold mx-3 my-2 py-2 pl-1 border-b border-gray-600">Durée: <?php echo formatDuration($film['duration_populaire']); ?></p>
                             </div>
                         </div>
-
-                        <div class="h-1/6 flex justify-center">
+                        <div class="w-1/2 h-1/4 flex justify-center py-3">
                             <div class="flex items-center justify-center gap-28">
-                                <button class="flex flex-row bg-blue-500 rounded-lg items-center px-5 py-4">
-                                    <img src="../img/like.png" alt="like" class="w-1/4">
-                                    <p class="text-2xl font-bold pl-5">33</p>
+                                <button class="flex flex-row items-center justify-center bg-gray-800 border-white border-2 rounded-lg py-3 px-6 hover:scale-110 hover:bg-gray-600">
+                                    <img src="../img/like.png" alt="like">
+                                    <p class="text-xl text-white font-bold ml-2">33</p>
                                 </button>
-                                <button class="flex flex-row bg-red-500 rounded-lg items-center px-5 py-4">
-                                    <img src="../img/dislike.png" alt="dislike" class="w-1/4">
-                                    <p class="text-2xl font-bold pl-5">5</p>
+                                <button class="flex flex-row items-center justify-center bg-gray-800 border-white border-2 rounded-lg py-3 px-6 hover:scale-110 hover:bg-gray-600">
+                                    <img src="../img/dislike.png" alt="dislike">
+                                    <p class="text-xl text-white font-bold ml-2">11</p>
                                 </button>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="w-2/3 h-full flex flex-col rounded-xl mx-6">
-
-                        <iframe src="<?php echo $film['trailer_populaire']; ?>" title="trailer <?php echo $film['title_populaire']; ?>" frameborder="0" allowfullscreen class="rounded-xl h-5/6 w-full"></iframe>
-                        
-                        
-                        <form class="flex flex-row w-6/6 h-1/6 py-4" method="post" action="">
-                            <input type="text" name="comment_content" class="w-5/6 border rounded-xl px-2 focus:outline-none focus:ring focus:border-blue-500 mr-1" placeholder="Votre commentaire..." required>
-                            <button type="submit" class="w-1/6 bg-blue-500 text-white rounded-xl ml-1">Envoyer</button>
-                        </form>
-                        
                     </div>
                 </div>
-                <div class="h-1/3 overflow-y-auto mr-4 custom-scroll">
+            </div>
+        </div>
 
+        <div class="w-1/2 h-4/4 p-3">
+            <div class="w-full h-2/3 flex flex-col rounded-xl">
+                <iframe src="<?php echo $film['trailer_populaire']; ?>" title="trailer <?php echo $film['title_populaire']; ?>" frameborder="0" allowfullscreen class="rounded-xl h-5/6 w-full"></iframe>
+
+                <form class="flex flex-row h-1/6 items-center w-full" method="post">
+                    <input type="text" name="comment_content" class="w-5/6 border rounded-xl px-2 focus:outline-none focus:ring focus:border-blue-500 mr-1 py-2" placeholder="Votre commentaire..." required>
+                    <button type="submit" class="w-1/6 bg-blue-500 text-white rounded-xl ml-1 py-2">Envoyer</button>
+                </form>
+            </div>
+            <div class="w-full h-1/3 custom-scroll overflow-y-auto">
                 <div id="successMessage" class="success-message">
-                <?php
-                if (isset($_SESSION['success_message'])) {
-                    echo '<div class="bg-green-500 text-white p-3 mb-3 rounded">' . $_SESSION['success_message'] . '</div>';
-                    unset($_SESSION['success_message']); 
-                }
-                ?>
+                    <?php
+                    if (isset($_SESSION['success_message'])) {
+                        echo '<div class="bg-blue-500 rounded-lg text-white font-bold pl-3">' . $_SESSION['success_message'] . '</div>';
+                        unset($_SESSION['success_message']); 
+                    }
+                    ?>
                 </div>
 
                 <?php foreach ($comments as $comment): ?>
-                    <div class="flex flex-col bg-gray-800 rounded-2xl px-2 py-1 my-2 mx-1">
-                        <h2 class="text-white text-xl"><?php echo $comment['nickname']; ?></h2>
-                        <p class="text-white"><?php echo $comment['content']; ?></p>
+                    <div class="flex flex-col bg-gray-800 rounded-2xl my-2 pl-3 py-1">
+                        <h2 class="text-white text-lg font-bold"><?php echo $comment['nickname']; ?></h2>
+                        <p class="text-white text-sm"><?php echo $comment['content']; ?></p>
                     </div>
                 <?php endforeach; ?>
-                                      
-
-              </div>
-         </div>
+            </div>
+        </div>
     </main>
+
 <script>
 // Sélectionnez l'élément du message de succès
 var successMessage = document.getElementById('successMessage');

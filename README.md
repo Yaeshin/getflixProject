@@ -1,6 +1,6 @@
 # GETFLIX 🎞️
 
-Lien vers la version live [la version live](http://www.play.byethost32.com/index.php).
+Lien vers la version live [la version live](https://playstreaming314.000webhostapp.com/index.php).
 
 Lien vers [le code source sur GitHub](https://github.com/Yaeshin/getflixProject).
 
