@@ -197,7 +197,12 @@ function formatDuration($durationMinutes) {
 
                 <?php foreach ($comments as $comment): ?>
                     <div class="flex flex-col bg-gray-800 rounded-2xl my-2 pl-3 py-1">
-                        <h2 class="text-white text-lg font-bold"><?php echo $comment['nickname']; ?></h2>
+                    <h2 class="text-white text-lg font-bold">
+                        <?php echo $comment['nickname']; ?> : 
+                        <span class="text-white text-sm">
+                            <?php echo date('Y-m-d H:i', strtotime($comment['date'])); ?>
+                        </span>
+                    </h2>
                         <p class="text-white text-sm"><?php echo $comment['content']; ?></p>
                     </div>
                 <?php endforeach; ?>
