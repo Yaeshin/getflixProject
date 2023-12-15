@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center mb-4">
+                <div class="text-center-2">
                         <p class="notification peer-invalid:visible text-pink-600 text-sm" ><?php echo $notification; ?></p>
                     </div>
                 <!-- Button for submitting the form -->
