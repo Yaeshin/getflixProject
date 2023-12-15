@@ -31,7 +31,7 @@
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Action">Action</a></div>
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Comedy">Comedy</a></div>
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Adventure">Adventure</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Drame">Drame</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Drama">Drama</a></div>
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Science%20Fiction">Science Fiction</a></div>
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Thriller">Thriller</a></div>
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Horror">Horror</a></div>
