@@ -27,7 +27,7 @@
                         </p>
                     </div>
                     <div class="block ">
-                        <label class="block text-slate-700 mb-1 mt-10 sm:mt-8 text-center" for="password">Password</label>
+                        <label class="block text-slate-700 mb-1 mt-10 sm:mt-8 text-center" for="password">Mot de passe</label>
                         <input class="bg-slate-50 peer appearance-none mt-1 bg-slate-50 peer appearance-none    w-full py-2 px-2 text-gray-700 leading-tight px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-500" type="password" placeholder="******************" id="password" name="password">
                     </div>
                     <div class="mt-10 sm:mt-10 flex justify-center">
