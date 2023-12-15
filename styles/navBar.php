@@ -8,7 +8,7 @@
                 <?php echo $_SESSION['nickname']?> <!-- Le nom de l'utilisateur affiché -->
             </div>
             <ul class="hidden absolute left-0 mt-2 w-48 py-2 bg-white border border-gray-300 rounded-lg shadow-md" id="dropdownOptions">
-                <li><a href="../pages/profil_user.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Edition de profil</a></li>
+                <li><a href="../pages/profileUser.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Edition de profil</a></li>
                 <li><a href="../auth.php?action=disconnect" class="block px-4 py-2 text-gray-800 hover:bg-gray-200" id="disconnectLink">Déconnexion</a></li>
             </ul>
         </div>
@@ -31,7 +31,7 @@
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Action">Action</a></div>
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Comedy">Comedy</a></div>
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Adventure">Adventure</a></div>
-            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Drame">Drame</a></div>
+            <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Drama">Drama</a></div>
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Science%20Fiction">Science Fiction</a></div>
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Thriller">Thriller</a></div>
             <div class="w-1/3 text-center px-2 py-3 m-0 text-white hover:bg-gray-300 hover:text-gray-800"><a href="search_results.php?search_term=Horror">Horror</a></div>
