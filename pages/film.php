@@ -119,7 +119,7 @@ function formatDuration($durationMinutes) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Menu</title>
+    <title>Film</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         ::-webkit-scrollbar {
