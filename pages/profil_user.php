@@ -11,7 +11,7 @@
     <div class="grid w-screen h-screen grid place-content-center bg-gray-800 shadow-2xl">
         <!-- Container with a border, rounded corners, and padding -->
         <form action="profileUser.php" method="post">
-            <div class="justify-center border-2 rounded-md border-gray-700 p-7 mt-5 bg-gray-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40 lg:px-32 lg:gap-10">
+            <div class="justify-center border-2 rounded-md border-gray-700 p-7 mt-5 bg-gray-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40 lg:px-20">
                 <!-- Grid layout with three rows and some padding -->
                 <div class="grid grid-rows-3 grid-flow-col gap-10 lg:gap-x-20 bg-gray-300 p-5 lg:m-10">
                     <!-- First column with profile information -->
@@ -58,19 +58,23 @@
                             <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="newPw" name="newPw">
                         </div>
                         <!-- Repeat password input -->
-                        <div class="block mt-10">
+                        <div class="block mt-9">
                             <label class="block text-black"> Repeat password</label>
                             <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="confirmNewPw" name="confirmNewPw">
                         </div>
                     </div>
                 </div>
+                <div class="text-center mb-4">
+                        <p class="notification peer-invalid:visible text-pink-600 text-sm" ><?php echo $notification; ?></p>
+                    </div>
                 <!-- Button for submitting the form -->
                 <div class="flex justify-center rows-start-1">
+                   
                     <button type="submit" name="editProfile" value="editProfile" class="bg-blue-500 hover:bg-sky-700 py-2 px-5 text-xl text-white rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg shadow-blue-500/50">
                         Modify
                     </button>
                 </div>
-                <p class="notification mt-2 peer-invalid:visible text-pink-600 text-sm" ><?php echo $notification; ?></p>
+                
             </div>
         </form>
     </div>
