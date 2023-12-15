@@ -21,7 +21,7 @@ class ProfileUserController{
                 $newNick=$_POST['newNick'];
             }
             if(!empty($_POST['newPw'])){
-                if($_POST['newPw']==$_POST['confirmNewPw'])$newNick=$_POST['newPw'];
+                if($_POST['newPw']==$_POST['confirmNewPw'])$newPew=$_POST['newPw'];
                 else {
                     $notification="Passwords don't match";
                     include('profil_user.php');
