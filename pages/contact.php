@@ -65,19 +65,3 @@
 
 
 
-
-<!-- <label class=" text-black md:text-right mb-1 md:mb-0 pr-4 " for="topic">
-                      Topic
-                    </label>
-                  </div> -->
-<!-- <div class=" md:w-4/6"> -->
-<!-- <select class=" appearance-none text-center w-full bg-white border border-gray-400 hover:border-gray-500  py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" name="topic" id="topic">
-                      <option>Choix</option>
-                      <option>Option 2</option>
-                      <option>Option 3</option>
-                    </select>
-                    <div class="pointer-events-none relative bottom-4 left-32 inset-y-0 right-0 flex items-center px-2 text-gray-700 top-1/2 transform -translate-y-1/2">
-                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                      </svg> -->
-<!-- </div> -->
