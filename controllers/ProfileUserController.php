@@ -31,8 +31,8 @@ class ProfileUserController{
             $notification = $this->_db->editProfile($_SESSION['user']->id_user(),$newEmail,$newNick,$newPw);
             
             if($notification=="true"){
-                $_SESSION['email'] = $_POST['newEmail'];
-                $_SESSION['nickname'] =$_POST['newNick'];
+                $_SESSION['email'] =$_SESSION['user']->html_email();
+                $_SESSION['nickname'] =$_SESSION['user']->html_nickname();
                 header("Location: ../pages/menu.php");
                 die();
             }
