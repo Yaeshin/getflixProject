@@ -136,6 +136,20 @@ class Db {
         $_SESSION['user'] = new User($row->id_user,$row->nickname,$row->email, $row->role,$row->is_disabled);
     }
 
+    public function sendContactMessage($email,$name,$topic,$message){
+        $query = 'INSERT INTO contact (name, email, message, topic)
+                    VALUES (:name, :email, :message, :topic)';
+
+        $ps = $this->_connection->prepare($query);
+        $ps->bindValue(':name', $name);
+        $ps->bindValue(':email', $email);
+        $ps->bindValue(':message', $message);
+        $ps->bindValue(':topic',$topic);
+        $ps->execute();
+
+        return "Message sent";
+    }
+
     public function seeAllUsers(){
 
         $query = 'SELECT id_user, nickname, email, role, is_disabled FROM users';
