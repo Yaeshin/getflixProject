@@ -18,7 +18,7 @@ class ConnexionController
 
         $notification = $this->_db->login_user($_POST['email'],$_POST['password']);
         if (!isset($_SESSION['user'])){
-            $notification = 'Sorry login failed for the following reason : '.$notification;
+            $notification = 'Login failed : '.$notification;
             include(VIEWS_PATH . 'connexion.php');
             return;
         }

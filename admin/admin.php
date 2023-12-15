@@ -6,7 +6,35 @@ if (empty($_SESSION['user'])) {
 if ($_SESSION['role'] == 'm') {
     header("Location: ../pages/menu.php");
     die();
-}?>
+}
+include '../config.php';
+
+// Fonction pour récupérer le nombre de lignes d'une table
+function getRowCount($conn, $tableName) {
+    $query = "SELECT COUNT(*) as total_rows FROM $tableName";
+    $result = $conn->query($query);
+
+    if ($result) {
+        $row = $result->fetch_assoc();
+        return $row['total_rows'];
+    } else {
+        return -1; // En cas d'erreur
+    }
+}
+
+// Récupération du nombre de lignes pour chaque table
+$membres = getRowCount($conn, "users");
+$movies = getRowCount($conn, "movies");
+$populaire = getRowCount($conn, "populaire");
+$commentaires = getRowCount($conn, "comments");
+$contact = getRowCount($conn, "contact");
+$film = $movies + $populaire;
+
+
+// Fermeture de la connexion
+$conn->close();
+?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,19 +53,19 @@ if ($_SESSION['role'] == 'm') {
             <div class="grid grid-cols-2 grid-rows-2 gap-4 wrap-2 m-8 ps-8 pt-10 content-center">
                 <div class=" p-6 m-6 h-[12rem] w-[75%] rounded-md bg-red-400 hover:bg-rose-600 cursor-pointer"> <!-- 3 times the default height (3rem) -->
                     <h3 class="text-xl">Membres</h3>
-                    <output class=" text-7xl text-center block ">13</output>
+                    <output class=" text-7xl text-center block "><?php echo $membres; ?></output>
                 </div>
                 <div class=" p-6 m-6 h-[12rem] w-[75%] rounded-md bg-yellow-300 hover:bg-yellow-500 cursor-pointer"> <!-- 3 times the default height (3rem) -->
                     <h3 class="text-xl">Films</h3>
-                    <output class=" text-7xl text-center block rounded-sm">301</output>
+                    <output class=" text-7xl text-center block rounded-sm"><?php echo $film; ?></output>
                 </div>
                 <div class=" p-6 m-6 h-[12rem] w-[75%] rounded-md bg-cyan-400 hover:bg-cyan-600 cursor-pointer"> <!-- 3 times the default height (3rem) -->
                     <h3 class="text-xl">Commentaires</h3>
-                    <output class=" text-7xl text-center block rounded-sm">2144</output>
+                    <output class=" text-7xl text-center block rounded-sm"><?php echo $commentaires; ?></output>
                 </div>
                 <div class=" p-6 m-6 h-[12rem] w-[75%] rounded-md bg-green-400 hover:bg-green-600 cursor-pointer"> <!-- 3 times the default height (3rem) -->
                     <h3 class="text-xl">Contact</h3>
-                    <output class=" text-7xl text-center block rounded-sm">2</output>
+                    <output class=" text-7xl text-center block rounded-sm"><?php echo $contact; ?></output>
                 </div>
         </section>
     </div>
