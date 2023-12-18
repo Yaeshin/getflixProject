@@ -8,23 +8,23 @@
 </head>
 <body>
     <!-- Container with a grid layout, centered vertically and horizontally, with a shadow -->
-    <div class="grid w-screen h-screen grid place-content-center bg-gray-800 shadow-2xl">
+    <div class="grid w-screen h-screen grid place-content-center bg-gray-800 shadow-2xl mb-4">
         <!-- Container with a border, rounded corners, and padding -->
-        <form action="profileUser.php" method="post">
-            <div class="justify-center border-2 rounded-md border-gray-700 p-7 mt-5 bg-gray-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40 lg:px-20">
+        <form action="profileUser.php" method="post" class="min-h-screen mt-4">
+            <div class="justify-center border-2 rounded-md border-gray-700 p-7 mt-5 bg-gray-300 flex flex-col drop-shadow-2x shadow-lg shadow-indigo-500/40 md:px-10">
                 <!-- Grid layout with three rows and some padding -->
-                <div class="grid grid-rows-3 grid-flow-col gap-10 lg:gap-x-20 bg-gray-300 p-5 lg:m-10">
+                <div class="grid grid-cols-1 md:flex-col md:grid-cols-2 gap-10 lg:gap-x-20 md:gap-x-10 bg-gray-300 p-5 lg:m-5 ">
                     <!-- First column with profile information -->
-                    <div class="row-span-3 mx-10"> 
+                    <div class="mx-10 w-full mx-auto ">
                         <p>Profile</p>
                         <!-- Container for profile image and upload button -->
                         <div class="flex items-center justify-center w-full">
                             <div class="flex-col pt-5 pb-6 flex flex-col w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50 relative">
                                 <!-- Grid layout for image and upload button -->
-                                <div class="grid grid-rows-6">
+                                <div class="grid grid-rows-6 ">
                                     <!-- Profile image -->
-                                    <div class="row-span-5">
-                                        <img class="object-cover h-4/5 w-auto bg-gray-300 absolute top-2 left-2 right-2 rounded shadow-lg" src="./../img/profile.png">
+                                    <div class="row-span-5 ">
+                                        <img class="object-cover h-4/5 w-auto bg-gray-300 absolute top-2 left-2 right-2 rounded shadow-lg sm:p-4" src="./../img/profile.png">
                                     </div>
                                     <!-- Upload button -->
                                     <div class="block row-span-1 row-start-6">
@@ -37,17 +37,18 @@
                             </div>
                         </div> 
                         <!-- Form for editing profile with input for nickname -->
-                        <div class="block mt-5 gap">
-                            <label class="block text-black mb-1" for="nickname_edit">Nickname</label>
-                            <input type="text" class="peer bg-slate-50 peer appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500" id="inline-password" placeholder=<?php echo $_SESSION['nickname'] ?> id="newNick" name="newNick"/>
+                        <div class="block md:mt-5 gap">
+                            <label class="block text-black md:mb-1" for="nickname_edit">Nickname</label>
+                        <input type="text" class="sm:w-full peer bg-slate-50 peer appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500" id="inline-password" placeholder=<?php echo $_SESSION['nickname'] ?> id="newNick" name="newNick"/>
+
                         </div>
                     </div>
                     <!-- Second column with email and password inputs -->
-                    <div class="row-span-4 col-span-2 grid grid-cols-1 gap-2">
+                    <div class="col-span-2 md:col-span-1 grid grid-cols-1 md:gap-10 sm:gap-1">
                         <!-- Email input with error message -->
                         <div class="block">
-                            <label class="block text-black mb-1" for="email_edit">Email</label>
-                            <input type="email" class="peer mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500" id="inline-password" placeholder=<?php echo $_SESSION['user']->html_email() ?> id="newEmail" name="newEmail"/>
+                            <label class="block text-black md:mb-1" for="email_edit ">Email</label>
+                            <input type="email" class="peer md:mt-1 bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500" id="inline-password" placeholder=<?php echo $_SESSION['user']->html_email() ?> id="newEmail" name="newEmail"/>
                             <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
                                 Please provide a valid email address.
                             </p>
@@ -55,12 +56,12 @@
                         <!-- Password input -->
                         <div class="block">
                             <label class="block text-black" for="password_edit">Password</label>
-                            <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="newPw" name="newPw">
+                            <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 md:mt-1" id="inline-password" type="password" placeholder="******************" id="newPw" name="newPw">
                         </div>
                         <!-- Repeat password input -->
-                        <div class="block mt-9">
+                        <div class="block md:mt-9">
                             <label class="block text-black"> Repeat password</label>
-                            <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 mt-1" id="inline-password" type="password" placeholder="******************" id="confirmNewPw" name="confirmNewPw">
+                            <input class="bg-slate-50 peer shrink appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-500 md:mt-1" id="inline-password" type="password" placeholder="******************" id="confirmNewPw" name="confirmNewPw">
                         </div>
                     </div>
                 </div>
