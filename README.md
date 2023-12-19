@@ -72,10 +72,3 @@ Cédric Berthet [github](https://github.com/cebe0210)
 
 Loa Soumahoro [github](https://github.com/LoaGnadjouSoumahoro)
 
- 
-
-
-=======
-# getflixProject
-Streaming website project
->>>>>>> a98bea3b69bdae4b2397dac29b6f816ac1ae829c
