@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # GETFLIX 🎞️
 
 Lien vers la version live [la version live](https://playstreaming314.000webhostapp.com/index.php).
