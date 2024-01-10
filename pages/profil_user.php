@@ -17,7 +17,7 @@
                     <!-- First column with profile information -->
                     <div class="mx-10 w-full mx-auto ">
                         <p>Profile</p>
-                        <!-- Container for profile image and upload button -->
+                        <!-- Container for profile image and upload button --
                         <div class="flex items-center justify-center w-full">
                             <div class="flex-col pt-5 pb-6 flex flex-col w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer bg-gray-50 relative">
                                 <!-- Grid layout for image and upload button -->
